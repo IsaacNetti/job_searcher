@@ -1,0 +1,21 @@
+[
+  {
+    "id":0,
+    "studentid":0,
+    "education":"University of South Carolina",
+    "acheivements":"Dean's List",
+    "skills":"Java, C++, HTML, Microsoft Office Suite",
+    "experience":[
+      {"title":"Bank Teller","company":"Bank of America","start":"2021-05-15","end":"2021-08-15","description":"Assisted customers with their financial needs."}
+    ]
+  },{
+    "id":1,
+    "studentid":0,
+    "education":"University of South Carolina",
+    "acheivements":"Dean's List",
+    "skills":"Java, C++, HTML, Microsoft Office Suite",
+    "experience":[
+      {"title":"Intern","company":"Microsoft","start":"2020-05-15","end":"2020-08-15","description":"Developed software in Java for Microsoft's search engine, Bing."}
+    ]
+  }
+]

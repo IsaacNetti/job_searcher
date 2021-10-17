@@ -1,0 +1,15 @@
+[
+  {
+    "id":0,
+    "name":"Google",
+    "location":"Mountain View, CA",
+    "sector":"Communication Services",
+    "industry":"Internet Content and Information"
+  },{
+    "id":1,
+    "name":"Amazon",
+    "location":"Mountain View, CA",
+    "sector":"Consumer Cyclical",
+    "industry":"Internet Retail" 
+  }
+]
