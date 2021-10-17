@@ -1,0 +1,19 @@
+[
+    {
+        "username":"BrentB565",
+        "password":"hornets222",
+        "firstName":"Brent",
+        "lastName":"Lots",
+        "id":0,
+        "company":"Samsung",
+        "phoneNumber":"5164776533"
+    },{
+        "username":"treehugger333",
+        "password":"savethetrees<3",
+        "firstName":"Emily",
+        "lastName":"Thurman",
+        "id":1,
+        "company":"Patagonia",
+        "phoneNumber":"8056008769"
+    }
+]

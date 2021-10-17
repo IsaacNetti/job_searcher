@@ -1,0 +1,25 @@
+[
+    {
+        "username":"goCocks999",
+        "password":"iLoveUSC",
+        "firstName":"Brayden",
+        "lastName":"Aires",
+        "id": 1,
+        "gpa":"3.56",
+        "eduAccount":"BBA1@email.sc.edu",
+        "phoneNumber":"8039899023",
+        "favorites":"Marketing and Communications Full-Time for Apple, Social Media Intern for Dell",
+        "ratings":"4.4"
+    },{
+        "username":"KayleeQ188",
+        "password":"Sparky!2!",
+        "firstName":"Kaylee",
+        "lastName":"Quigley",
+        "id": 0,
+        "gpa":"3.77",
+        "eduAccount":"KayleeQ01@email.sc.edu",
+        "phoneNumber":"6455120099",
+        "favorites":"Business Intern for Berskhire Hathaway, Accountant Full-Time for First Citizens Bank, Financial Consultant Part-Time for Sony",
+        "ratings":"5.0"
+    }
+]
