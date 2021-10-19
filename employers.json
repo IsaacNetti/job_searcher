@@ -5,6 +5,7 @@
         "firstName":"Brent",
         "lastName":"Lots",
         "id":0,
+        "companyid":8,
         "company":"Samsung",
         "phoneNumber":"5164776533"
     },{
@@ -13,6 +14,7 @@
         "firstName":"Emily",
         "lastName":"Thurman",
         "id":1,
+        "companyid":9,
         "company":"Patagonia",
         "phoneNumber":"8056008769"
     }
