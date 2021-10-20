@@ -12,7 +12,7 @@ public class Companies {
     public static void getInstance(){
     
     }
-    public boolean haveComapny(String companyName){
+    public boolean haveCompany(String companyName){
         return true;
     }
     public Company getCompany(String companyName){
