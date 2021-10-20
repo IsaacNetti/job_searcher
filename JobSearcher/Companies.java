@@ -9,14 +9,15 @@ public class Companies {
     private Companies(){
 
     }
-    //public getInstance(){
-    //    return;
-    //}
+    public static void getInstance(){
+    
+    }
     public boolean haveComapny(String companyName){
         return true;
     }
-    //public Company getCompany(String companyName){
-    //    return companyName;
-    //}
+    public Company getCompany(String companyName){
+        Company result = new Company();
+        return result;
+    }
     
 }
