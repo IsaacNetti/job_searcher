@@ -13,20 +13,20 @@ public class Company {
     public Company(){
 
     }
-    public void setCompanyID(){
-
+    public void setCompanyID(UUID companyID) {
+      this.companyID = companyID;
     }
-    public void setName(){
-
+    public void setName(String name) {
+      this.name = name;
     }
-    public void setLocation(){
-
+    public void setLocation(String location) {
+      this.location = location;
     }
-    public void setIndustry(){
-
+    public void setIndustry(String industry) {
+      this.industry = industry;
     }
-    public void setSector(){
-
+    public void setSector(String sector) {
+      this.sector = sector;
     }
     public UUID getCompanyID(){
         return companyID;

@@ -3,21 +3,28 @@ package JobSearcher;
 import java.util.ArrayList;
 
 public class Companies {
-    private Companies companies;
-    private ArrayList<Company> Companylist;
+    private static Companies companies;
+    private ArrayList<Company> companylist;
 
-    private Companies(){
-
+    private Companies() {
+      companylist = DatabaseLoader.loadCompanies();
     }
-    public static void getInstance(){
-    
+    public static Companies getInstance() {
+      if (companies == null) {
+        companies = new Companies();
+      }
+      return companies;
     }
-    public boolean haveCompany(String companyName){
-        return true;
+    public boolean haveCompany(String companyName) {
+        for (Company c : companylist) {
+          if (c.getName() == companyName) {
+            return true;
+          }
+        }
+        return false;
     }
-    public Company getCompany(String companyName){
+    public Company getCompany(String companyName) {
         Company result = new Company();
         return result;
     }
-    
 }

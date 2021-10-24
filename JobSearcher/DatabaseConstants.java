@@ -1,7 +1,7 @@
 package JobSearcher;
 
 public abstract class DatabaseConstants {
-  protected static final String EMPLOYERS_FILE = "src/employers.json";
+  protected static final String EMPLOYERS_FILE = "datastorage/employers.json";
   protected static final String EMPLOYERS = "employers";
   protected static final String EMPLOYERS_ID = "id";
   protected static final String EMPLOYERS_USERNAME = "username";
@@ -9,7 +9,7 @@ public abstract class DatabaseConstants {
   protected static final String EMPLOYERS_FIRSTNAME = "firstName";
   protected static final String EMPLOYERS_LASTNAME = "lastName";
  
-  protected static final String STUDENTS_FILE = "src/students.json";
+  protected static final String STUDENTS_FILE = "datastorage/students.json";
   protected static final String STUDENTS = "students";
   protected static final String STUDENTS_ID = "id";
   protected static final String STUDENTS_USERNAME = "username";
@@ -17,7 +17,7 @@ public abstract class DatabaseConstants {
   protected static final String STUDENTS_FIRSTNAME = "firstName";
   protected static final String STUDENTS_LASTNAME = "lastName";
 
-  protected static final String COMPANIES_FILE = "src/companies.json";
+  protected static final String COMPANIES_FILE = "datastorage/companies.json";
   protected static final String COMPANIES_COMPANY = "company";
   protected static final String COMPANIES_ID = "id";
   protected static final String COMPANIES_NAME = "name";
