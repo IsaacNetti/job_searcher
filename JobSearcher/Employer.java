@@ -12,7 +12,7 @@ public class Employer {
     public Employer(){
 
     }
-    public void setEmployerID() {
+    public void setEmployerID(UUID employerID) {
         this.employerID = UUID.randomUUID();
     }
     public void setCompany(String company){

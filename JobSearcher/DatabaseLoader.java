@@ -9,6 +9,39 @@ import java.util.UUID;
 
 public class DatabaseLoader extends DatabaseConstants {
   
+  public static ArrayList<Employer> loadEmployers() {
+    ArrayList<Employer> employers = new ArrayList<>();
+    
+    try {
+      FileReader reader = new FileReader(EMPLOYERS_FILE);
+      JSONParser parser = new JSONParser();
+      JSONArray employersJSON = (JSONArray)parser.parse(reader);
+      for(int i = 0; i < employersJSON.size(); i++){
+        JSONObject employerJSON = (JSONObject)employersJSON.get(i);
+        String id = (String)employerJSON.get(EMPLOYERS_ID);
+        UUID uid = UUID.fromString(id);
+        String company = (String)employerJSON.get(EMPLOYERS_COMPANY);
+        String firstName = (String)employerJSON.get(EMPLOYERS_FIRSTNAME);
+        String lastName = (String)employerJSON.get(EMPLOYERS_LASTNAME);
+        String name = firstName + " " + lastName;
+        String location = (String)employerJSON.get(COMPANIES_LOCATION);
+        String sector = (String)employerJSON.get(COMPANIES_SECTOR);
+        String industry = (String)employerJSON.get(COMPANIES_INDUSTRY);
+
+        employers.add(new Employer());
+        employers.get(employers.size() - 1).setEmployerID(uid);
+        employers.get(employers.size() - 1).setCompany(company);
+        employers.get(employers.size() - 1).setName(name);
+        employers.get(employers.size() - 1).setSector(sector);
+        employers.get(employers.size() - 1).setIndustry(industry);
+      }
+      return employers;
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    return employers;
+  }
+
   public static ArrayList<Company> loadCompanies() {
     ArrayList<Company> companies = new ArrayList<>();
     
