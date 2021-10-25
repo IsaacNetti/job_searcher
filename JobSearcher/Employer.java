@@ -1,16 +1,20 @@
 package JobSearcher;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class Employer {
     private String name;
     private ArrayList<Job> listings;
+    private UUID employerID;
     private String company;
     private String phoneNumber;
 
     public Employer(){
 
     }
-    
+    public void setEmployerID() {
+        this.employerID = UUID.randomUUID();
+    }
     public void setCompany(String company){
 
     }
@@ -55,6 +59,9 @@ public class Employer {
     }
     public String getName() {
         return name;
+    }
+    public UUID getEmployerID() {
+        return employerID;
     }
 
 }

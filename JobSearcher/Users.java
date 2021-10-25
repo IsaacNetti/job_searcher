@@ -6,16 +6,29 @@ public class Users {
     private ArrayList<User> userList;
 
     public Users(){
-
+        userList = DatabaseLoader.loadResumes();
     }
-    public static void getInstance(){
-
+    public static Users getInstance(){
+        if (users == null) {
+            users = new Users();
+          }
+          return users;
     }
     public boolean haveUser(String username){
-        return true;
+        for (User c : userList) {
+            if (c.getUsername() == username) {
+              return true;
+            }
+          }
+          return false;
     }
     public User getUser(String username){
-        User result = new User();
-        return result;
+        for (User c : userList) {
+            if (c.getUsername() == username) {
+              return c;
+            }
+          }
+          System.out.println("User does not exist");
+          return null;
     }
 }

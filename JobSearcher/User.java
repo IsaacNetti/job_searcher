@@ -5,16 +5,22 @@ public class User {
     protected String password;
     protected String typeOfUser;
 
-    public User(){
-
+    public User(String username, String password, String type){
+        setUsername(username);
+        setType(type);
+        setPassword(password);
+        // When called write user to json
     }
-    public static void setUsername(String username){
-
+    public void setUsername(String username){
+        this.username = username;
     }
-    public static void setPassword(String password){
-
+    public void setPassword(String password){
+        this.password = password;
     }
-    public static void setType(String type){
-        
+    public void setType(String type){
+        this.typeOfUser = type;
+    }
+    public String getUsername() {
+        return username;
     }
 }

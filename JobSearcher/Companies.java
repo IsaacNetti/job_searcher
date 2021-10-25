@@ -1,6 +1,7 @@
 package JobSearcher;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class Companies {
     private static Companies companies;
@@ -23,8 +24,13 @@ public class Companies {
         }
         return false;
     }
-    public Company getCompany(String companyName) {
-        Company result = new Company();
-        return result;
+    public Company getCompany(UUID companyID) {
+      for (Company c : companylist) {
+        if (c.getCompanyID() == companyID) {
+          return c;
+        }
+      }
+      System.out.println("Company does not exist");
+      return null;
     }
 }

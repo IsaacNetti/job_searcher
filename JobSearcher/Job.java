@@ -1,5 +1,6 @@
 package JobSearcher;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class Job {
     private String name;
@@ -8,6 +9,7 @@ public class Job {
     private Double salary;
     private String description;
     private String location;
+    private UUID jobID;
     private boolean isRemote;
     private ArrayList<Application> applicants;
     private String company;
@@ -15,7 +17,9 @@ public class Job {
     public Job(){
 
     }
-    
+    public void setJobID() {
+        this.jobID = UUID.randomUUID();;
+    }
     public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
@@ -74,5 +78,8 @@ public class Job {
     }
     public ArrayList<Application> getApplicants(){
         return this.applicants;
+    }
+    public UUID getJobID() {
+        return jobID;
     }
 }

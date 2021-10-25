@@ -1,9 +1,11 @@
 package JobSearcher;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class Student {
     private String name;
     private double gpa;
+    private UUID studentId;
     private String eduAcc;
     private String phoneNumber;
     private ArrayList<Job> favorites;
@@ -11,6 +13,9 @@ public class Student {
 
     public Student(){
 
+    }
+    public void setStudentId() {
+        this.studentId = UUID.randomUUID();
     }
     public void setName(String name) {
         this.name = name;
@@ -23,6 +28,9 @@ public class Student {
     }
     public Ratings getRatings(){
         return this.ratings;
+    }
+    public UUID getStudentId() {
+        return studentId;
     }
     public void apply(Job job, Student student){
         job.addApplicant(student);

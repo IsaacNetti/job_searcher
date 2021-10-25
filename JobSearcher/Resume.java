@@ -27,8 +27,9 @@ public class Resume {
     public void setHobbies(String hobbies) {
         this.hobbies = hobbies;
     }
-    public void addWorkExperience(){
-
+    public void addWorkExperience(String title, Company company, String startDate, String endDate, String JobDescription){
+        Experience experience = new Experience(title, company, startDate, endDate, JobDescription);
+        workExperience.add(experience);
     }
     public String getSkills() {
         return skills;
