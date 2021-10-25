@@ -1,7 +1,8 @@
 package JobSearcher;
-import java.util.UUID;
+
 public class tester {
-    public static void main(String Args[]){
-        System.out.println(UUID.randomUUID());
+    public static void main(String Args[]) {
+        Companies c = Companies.getInstance();
+        System.out.println(c.haveCompany("Google"));
     }
 }

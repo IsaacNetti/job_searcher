@@ -13,8 +13,8 @@ public class Company {
     public Company(){
 
     }
-    public void setCompanyID() {
-      this.companyID = UUID.randomUUID();
+    public void setCompanyID(UUID companyID) {
+      this.companyID = companyID;
     }
     public void setName(String name) {
       this.name = name;
@@ -30,7 +30,6 @@ public class Company {
     }
     public UUID getCompanyID(){
         return companyID;
-
     }
     public String getName(){
         return name;
