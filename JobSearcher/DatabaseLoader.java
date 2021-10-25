@@ -24,16 +24,11 @@ public class DatabaseLoader extends DatabaseConstants {
         String firstName = (String)employerJSON.get(EMPLOYERS_FIRSTNAME);
         String lastName = (String)employerJSON.get(EMPLOYERS_LASTNAME);
         String name = firstName + " " + lastName;
-        String location = (String)employerJSON.get(COMPANIES_LOCATION);
-        String sector = (String)employerJSON.get(COMPANIES_SECTOR);
-        String industry = (String)employerJSON.get(COMPANIES_INDUSTRY);
 
         employers.add(new Employer());
         employers.get(employers.size() - 1).setEmployerID(uid);
         employers.get(employers.size() - 1).setCompany(company);
         employers.get(employers.size() - 1).setName(name);
-        employers.get(employers.size() - 1).setSector(sector);
-        employers.get(employers.size() - 1).setIndustry(industry);
       }
       return employers;
     } catch (Exception e) {
