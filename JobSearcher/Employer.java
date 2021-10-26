@@ -3,9 +3,13 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class Employer {
-    private String name;
-    private ArrayList<Job> listings;
     private UUID employerID;
+    private UUID companyID;  
+    private String username;
+    private String password;  
+    private String firstName;
+    private String lastName;
+    private ArrayList<Job> listings;
     private String company;
     private String phoneNumber;
 
@@ -13,21 +17,44 @@ public class Employer {
 
     }
     public void setEmployerID(UUID employerID) {
-        this.employerID = UUID.randomUUID();
+      this.employerID = employerID;
+    }
+    public void setCompanyID(UUID companyID) {
+      this.companyID = companyID;
     }
     public void setCompany(String company){
-
-    }
-    public void setName(String name){
-
+      this.company = company;
     }
     public void setUsername(String username){
-
+      this.username = username;
     }
     public void setPassword(String password){
-
+      this.password = password;
     }
-
+    public void setFirstName(String firstName){
+      this.firstName = firstName;
+    }
+    public void setLastName(String lastName){
+      this.lastName = lastName;
+    }
+    public void setPhoneNumber(String phoneNumber) {
+      this.phoneNumber = phoneNumber;
+    }
+    public ArrayList<Job> getListings() {
+      return listings;
+    }
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+    public String getCompany() {
+        return company;
+    }
+    public String getFirstName() {
+        return firstName;
+    }
+    public UUID getEmployerID() {
+        return employerID;
+    }
     public Job createJob(String jobCreatingParameters){
         Job listing = new Job();
         return listing;
@@ -47,22 +74,5 @@ public class Employer {
     public void rateStudent(Student student){
 
     }
-
-    public ArrayList<Job> getListings() {
-        return listings;
-    }
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-    public String getCompany() {
-        return company;
-    }
-    public String getName() {
-        return name;
-    }
-    public UUID getEmployerID() {
-        return employerID;
-    }
-
 }
 

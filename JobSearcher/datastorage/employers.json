@@ -1,20 +1,20 @@
 [
     {
+        "id":"34644dad-c03e-4cd4-b1a9-d2e5d1c94d79",
+        "companyid":"34644dad-c03e-4cd4-b1a9-d2e5d1c94d80",  
         "username":"BrentB565",
         "password":"hornets222",
         "firstName":"Brent",
         "lastName":"Lots",
-        "id":0,
-        "companyid":8,
         "company":"Samsung",
         "phoneNumber":"5164776533"
     },{
+        "id":"34644dad-c03e-4cd4-b1a9-d2e5d1c94d81",
+        "companyid":"34644dad-c03e-4cd4-b1a9-d2e5d1c9482",  
         "username":"treehugger333",
         "password":"savethetrees<3",
         "firstName":"Emily",
         "lastName":"Thurman",
-        "id":1,
-        "companyid":9,
         "company":"Patagonia",
         "phoneNumber":"8056008769"
     }
