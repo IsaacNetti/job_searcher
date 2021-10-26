@@ -1,10 +1,10 @@
 [
     {
+        "id":"34644dad-c03e-4cd4-b1a9-d2e5d1c9483",  
         "username":"goCocks999",
         "password":"iLoveUSC",
         "firstName":"Brayden",
         "lastName":"Aires",
-        "id": 1,
         "gpa":"3.56",
         "eduAccount":"BBA1@email.sc.edu",
         "phoneNumber":"8039899023",
@@ -17,11 +17,11 @@
             {"title":"Bank Teller","company":"Bank of America","start":"2021-05-15","end":"2021-08-15","description":"Assisted customers with their financial needs."}
         ]
     },{
+        "id":"34644dad-c03e-4cd4-b1a9-d2e5d1c9484",
         "username":"KayleeQ188",
         "password":"Sparky!2!",
         "firstName":"Kaylee",
         "lastName":"Quigley",
-        "id": 0,
         "gpa":"3.77",
         "eduAccount":"KayleeQ01@email.sc.edu",
         "phoneNumber":"6455120099",

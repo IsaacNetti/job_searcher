@@ -46,6 +46,41 @@ public class DatabaseLoader extends DatabaseConstants {
     return employers;
   }
 
+  public static ArrayList<Student> loadStudents() {
+    ArrayList<Student> students = new ArrayList<>();
+    
+    try {
+      FileReader reader = new FileReader(STUDENTS_FILE);
+      JSONParser parser = new JSONParser();
+      JSONArray studentsJSON = (JSONArray)parser.parse(reader);
+      for (int i = 0; i < studentsJSON.size(); i++) {
+        JSONObject studentJSON = (JSONObject)studentsJSON.get(i);
+        String id = (String)studentJSON.get(STUDENTS_ID);
+        UUID uid = UUID.fromString(id);
+        String username = (String)studentJSON.get(EMPLOYERS_USERNAME);
+        String password = (String)studentJSON.get(EMPLOYERS_PASSWORD);
+        String firstName = (String)studentJSON.get(STUDENTS_FIRSTNAME);
+        String lastName = (String)studentJSON.get(STUDENTS_LASTNAME);
+        String gpa = (String)studentJSON.get(STUDENTS_GPA);
+        String eduAccount = (String)studentJSON.get(STUDENTS_EDU_ACCOUNT);
+        String ratings = (String)studentJSON.get(STUDENTS_RATINGS);
+        String phoneNumber = (String)studentJSON.get(STUDENTS_PHONE_NUMBER);
+
+        students.add(new Student());
+        students.get(students.size() - 1).setStudentID(uid);
+        students.get(students.size() - 1).setUsername(username);
+        students.get(students.size() - 1).setPassword(password);
+        students.get(students.size() - 1).setFirstName(firstName);
+        students.get(students.size() - 1).setLastName(lastName);
+        students.get(students.size() - 1).setPhoneNumber(phoneNumber);
+      }
+      return students;
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    return students;
+  }
+
   public static ArrayList<Company> loadCompanies() {
     ArrayList<Company> companies = new ArrayList<>();
     
