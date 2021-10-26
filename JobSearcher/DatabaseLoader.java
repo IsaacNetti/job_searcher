@@ -133,6 +133,29 @@ public class DatabaseLoader extends DatabaseConstants {
     return jobs;
   }
 
+  public static ArrayList<Application> loadApplications() {
+    ArrayList<Application> applications = new ArrayList<>();
+    
+    try {
+      FileReader reader = new FileReader(JOBS_FILE);
+      JSONParser parser = new JSONParser();
+      JSONArray applicationsJSON = (JSONArray)parser.parse(reader);
+      for(int i = 0; i < applicationsJSON.size(); i++){
+        JSONObject applicationJSON = (JSONObject)applicationsJSON.get(i);
+        String id = (String)applicationJSON.get(JOBS_ID);
+        UUID uid = UUID.fromString(id);
+        String jobID = (String)applicationJSON.get(JOBS_COMPANY_ID);
+        UUID uidJob = UUID.fromString(jobID);
+        String studentID = (String)applicationJSON.get(JOBS_EMPLOYER_ID);
+        UUID uidStudent = UUID.fromString(studentID);
+      }
+      return applications;
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    return applications;
+  }
+
   public static ArrayList<Company> loadCompanies() {
     ArrayList<Company> companies = new ArrayList<>();
     
