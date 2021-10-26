@@ -40,6 +40,24 @@ public class Employer {
     public void setPhoneNumber(String phoneNumber) {
       this.phoneNumber = phoneNumber;
     }
+    public UUID getEmployerID() {
+      return employerID;
+    }
+    public UUID getCompanyID() {
+      return companyID;
+    }
+    public String getUsername() {
+      return username;
+    }
+    public String getPassword() {
+      return password;
+    }
+    public String getFirstName() {
+      return firstName;
+    }
+    public String getLastName() {
+      return lastName;
+    }
     public ArrayList<Job> getListings() {
       return listings;
     }
@@ -48,12 +66,6 @@ public class Employer {
     }
     public String getCompany() {
         return company;
-    }
-    public String getFirstName() {
-        return firstName;
-    }
-    public UUID getEmployerID() {
-        return employerID;
     }
     public Job createJob(String jobCreatingParameters){
         Job listing = new Job();
