@@ -3,10 +3,13 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class Student {
-    private String name;
+    private String username;
+    private String password;
+    private String firstName;
+    private String lastName;
     private double gpa;
     private UUID studentId;
-    private String eduAcc;
+    private String eduAccount;
     private String phoneNumber;
     private ArrayList<Job> favorites;
     private Ratings ratings;
@@ -14,15 +17,27 @@ public class Student {
     public Student(){
 
     }
-    public void setStudentId() {
-        this.studentId = UUID.randomUUID();
+    public void setStudentID(UUID studentID) {
+        this.studentId = studentID;
     }
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+      this.username = username;
+    }
+    public void setPassword(String password) {
+      this.password = password;
+    }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+    public void setLastName(String lastName) {
+      this.lastName = lastName;
     }
     public void setGpa(double gpa) {
         this.gpa = gpa;
     }
+    public void setEduAccount(String eduAccount) {
+      this.eduAccount = eduAccount;
+  }
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }

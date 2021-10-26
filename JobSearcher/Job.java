@@ -17,8 +17,8 @@ public class Job {
     public Job(){
 
     }
-    public void setJobID() {
-        this.jobID = UUID.randomUUID();;
+    public void setJobID(UUID jobID) {
+        this.jobID = jobID;
     }
     public void setStartDate(String startDate) {
         this.startDate = startDate;

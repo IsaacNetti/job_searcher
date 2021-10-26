@@ -27,6 +27,12 @@ public abstract class DatabaseConstants {
   protected static final String STUDENTS_SKILLS = "skills";
   protected static final String STUDENTS_EXPERIENCE = "experience";
 
+  protected static final String EXPERIENCES_TITLE = "title";
+  protected static final String EXPERIENCES_COMPANY = "company";
+  protected static final String EXPERIENCES_START = "start";
+  protected static final String EXPERIENCES_END  = "end";
+  protected static final String EXPERIENCES_DESCRIPTION = "description";
+
   protected static final String COMPANIES_FILE = "JobSearcher/datastorage/companies.json";
   protected static final String COMPANIES_ID = "id";
   protected static final String COMPANIES_NAME = "name";

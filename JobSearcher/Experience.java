@@ -2,12 +2,12 @@ package JobSearcher;
 
 public class Experience {
     private String title;
-    private Company Company;
+    private String company;
     private String startDate;
     private String endDate;
     private String jobDescription;
     
-    public Experience(String title, Company company, String startDate, String endDate, String JobDescription){
+    public Experience(String title, String company, String startDate, String endDate, String JobDescription){
         setTitle(title);
         setCompany(company);
         setStartDate(startDate);
@@ -17,8 +17,8 @@ public class Experience {
     public void setTitle(String title) {
         this.title = title;
     }
-    public void setCompany(Company company) {
-        Company = company;
+    public void setCompany(String company) {
+        this.company = company;
     }
     public void setEndDate(String endDate) {
         this.endDate = endDate;
@@ -29,8 +29,8 @@ public class Experience {
     public void setJobDescription(String jobDescription) {
         this.jobDescription = jobDescription;
     }
-    public Company getCompany() {
-        return Company;
+    public String getCompany() {
+        return company;
     }
     public String getEndDate() {
         return endDate;

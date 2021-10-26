@@ -63,8 +63,24 @@ public class DatabaseLoader extends DatabaseConstants {
         String lastName = (String)studentJSON.get(STUDENTS_LASTNAME);
         String gpa = (String)studentJSON.get(STUDENTS_GPA);
         String eduAccount = (String)studentJSON.get(STUDENTS_EDU_ACCOUNT);
+        String favorites = (String)studentJSON.get(STUDENTS_FAVORITES);
         String ratings = (String)studentJSON.get(STUDENTS_RATINGS);
         String phoneNumber = (String)studentJSON.get(STUDENTS_PHONE_NUMBER);
+        String education = (String)studentJSON.get(STUDENTS_EDUCATION);
+        String achievements = (String)studentJSON.get(STUDENTS_ACHIEVEMENTS);
+        String skills = (String)studentJSON.get(STUDENTS_SKILLS);
+
+        ArrayList<Experience> experiences = new ArrayList<>();
+        JSONArray experiencesJSON = (JSONArray)studentJSON.get(STUDENTS_EXPERIENCE);
+        for (int j = 0; j < experiencesJSON.size(); j++) {
+          JSONObject experienceJSON = (JSONObject)experiencesJSON.get(i);
+          String title = (String)experienceJSON.get(EXPERIENCES_TITLE);
+          String company = (String)experienceJSON.get(EXPERIENCES_COMPANY);
+          String startDate = (String)experienceJSON.get(EXPERIENCES_START);
+          String endDate = (String)experienceJSON.get(EXPERIENCES_END);
+          String description = (String)experienceJSON.get(EXPERIENCES_DESCRIPTION);
+          experiences.add(new Experience(title, company, startDate, endDate, description));
+        } 
 
         students.add(new Student());
         students.get(students.size() - 1).setStudentID(uid);
@@ -72,13 +88,49 @@ public class DatabaseLoader extends DatabaseConstants {
         students.get(students.size() - 1).setPassword(password);
         students.get(students.size() - 1).setFirstName(firstName);
         students.get(students.size() - 1).setLastName(lastName);
+        students.get(students.size() - 1).setGpa(gpa);
+        students.get(students.size() - 1).setEduAccount(eduAccount);
         students.get(students.size() - 1).setPhoneNumber(phoneNumber);
+        
       }
       return students;
     } catch (Exception e) {
         e.printStackTrace();
     }
     return students;
+  }
+
+  public static ArrayList<Job> loadJobs() {
+    ArrayList<Job> jobs = new ArrayList<>();
+    
+    try {
+      FileReader reader = new FileReader(JOBS_FILE);
+      JSONParser parser = new JSONParser();
+      JSONArray jobsJSON = (JSONArray)parser.parse(reader);
+      for(int i = 0; i < jobsJSON.size(); i++){
+        JSONObject jobJSON = (JSONObject)jobsJSON.get(i);
+        String id = (String)jobJSON.get(JOBS_ID);
+        UUID uid = UUID.fromString(id);
+        String name = (String)jobJSON.get(JOBS_NAME);
+        String companyID = (String)jobJSON.get(JOBS_COMPANY_ID);
+        UUID uidCompany = UUID.fromString(companyID);
+        String employerID = (String)jobJSON.get(JOBS_EMPLOYER_ID);
+        UUID uidEmployer = UUID.fromString(employerID);
+        String startDate = (String)jobJSON.get(JOBS_START_DATE);
+        String endDate = (String)jobJSON.get(JOBS_END_DATE);
+
+        jobs.add(new Job());
+        jobs.get(jobs.size() - 1).setJobID(uid);
+        jobs.get(jobs.size() - 1).setName(name);
+        jobs.get(jobs.size() - 1).setCom(name); 
+        jobs.get(jobs.size() - 1).setStartDate(startDate);
+        jobs.get(jobs.size() - 1).setEndDate(endDate);
+      }
+      return jobs;
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    return jobs;
   }
 
   public static ArrayList<Company> loadCompanies() {
