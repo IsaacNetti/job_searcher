@@ -1,5 +1,6 @@
 package JobSearcher;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class Users {
     private static Users users;
@@ -24,9 +25,9 @@ public class Users {
           }
           return false;
     }
-    public User getStudent(String username){
+    public Student getStudent(UUID studentID){
         for (Student c : studentList) {
-            if (c.getUsername() == username) {
+            if (c.getStudentId() == studentID) {
               return c;
             }
           }
@@ -41,9 +42,9 @@ public class Users {
         }
         return false;
   }
-  public User getEmployer(String username){
+  public Employer getEmployer(UUID employerID){
       for (Employer c : employerList) {
-          if (c.getUsername() == username) {
+          if (c.getEmployerID() == employerID) {
             return c;
           }
         }

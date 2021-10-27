@@ -47,8 +47,8 @@ public class Job {
         this.company = list.getCompany(companyID);
     }
     public void setEmployer(UUID employerID) {
-        Employers list = Employers.getInstance();
-        this.employer = list.getCompany(employerID);
+        Users list = Users.getInstance();
+        this.employer = list.getEmployer(employerID);
     }
 
     public void addApplicant(Student student){

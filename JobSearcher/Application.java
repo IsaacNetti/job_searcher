@@ -1,22 +1,37 @@
 package JobSearcher;
 
+import java.util.UUID;
+
 public class Application {
+    private UUID applicationID;  
     private Student student;
-    private Resume resume;
+    private Job job;
 
-    public Application(Student student, Resume resume){
-        this.student = student;
-        this.resume = resume;
+    public Application(UUID studentID, UUID jobID) {
+      setStudent(studentID);
+      setJob(jobID);
     }
-
+    public void setApplicationID(UUID applicationID) {
+      this.applicationID = applicationID;
+    }
+    private void setStudent(UUID studentID) {
+      Users list = Users.getInstance();
+      this.student = list.getStudent(studentID);
+    }
+    private void setJob(UUID jobID) {
+      Jobs list = Jobs.getInstance();
+      this.job = list.getJob(jobID);
+    }
     public Student getStudent(){
         return student;
     }
 
-    public Resume getResume(){
-        return resume;
+    public Job getJob(){
+        return job;
     }
-
+    public UUID getApplicationID(){
+      return applicationID;
+    }
     public void acceptApplicant(){
 
     }

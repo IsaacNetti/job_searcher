@@ -7,12 +7,13 @@ public class Student extends User{
     private String password;
     private String firstName;
     private String lastName;
-    private double gpa;
+    private String gpa;
     private UUID studentId;
     private String eduAccount;
     private String phoneNumber;
     private ArrayList<Job> favorites;
     private Ratings ratings;
+    private Resume resume;
 
     public Student(){
 
@@ -32,7 +33,7 @@ public class Student extends User{
     public void setLastName(String lastName) {
       this.lastName = lastName;
     }
-    public void setGpa(double gpa) {
+    public void setGpa(String gpa) {
         this.gpa = gpa;
     }
     public void setEduAccount(String eduAccount) {
@@ -53,9 +54,12 @@ public class Student extends User{
     public void apply(Job job, Student student){
         job.addApplicant(student);
     }
-    public Resume createResume(){
-        Resume studentsResume = new Resume();
-        return studentsResume;
+    public void createResume(String skills, String education, String achievements, ArrayList<Experience> workExperience){
+        this.resume = new Resume();
+        this.resume.setSkills(skills);
+        this.resume.setEducation(education);
+        this.resume.setAchievements(achievements);
+        this.resume.setWorkExperience(workExperience);
     }
     public void addRating(int rating, String review){
         

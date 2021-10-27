@@ -8,6 +8,7 @@ public class Jobs {
 
     public Jobs(){
         jobList = DatabaseLoader.loadJobs();
+        DatabaseLoader.loadApplications();
     }
     public static Jobs getInstance(){
         if (jobs == null) {

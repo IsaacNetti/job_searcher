@@ -81,7 +81,6 @@ public class DatabaseLoader extends DatabaseConstants {
           String description = (String)experienceJSON.get(EXPERIENCES_DESCRIPTION);
           experiences.add(new Experience(title, company, startDate, endDate, description));
         } 
-
         students.add(new Student());
         students.get(students.size() - 1).setStudentID(uid);
         students.get(students.size() - 1).setUsername(username);
@@ -91,7 +90,7 @@ public class DatabaseLoader extends DatabaseConstants {
         students.get(students.size() - 1).setGpa(gpa);
         students.get(students.size() - 1).setEduAccount(eduAccount);
         students.get(students.size() - 1).setPhoneNumber(phoneNumber);
-        
+        students.get(students.size() - 1).createResume(skills, education, achievements, experiences);
       }
       return students;
     } catch (Exception e) {
@@ -130,6 +129,7 @@ public class DatabaseLoader extends DatabaseConstants {
         jobs.get(jobs.size() - 1).setEndDate(endDate);
         jobs.get(jobs.size() - 1).setSalary(salary); 
         jobs.get(jobs.size() - 1).setCompany(uidCompany);
+        jobs.get(jobs.size() - 1).setEmployer(uidEmployer);
         jobs.get(jobs.size() - 1).setDescription(description); 
         jobs.get(jobs.size() - 1).setLocation(location);
         jobs.get(jobs.size() - 1).setRemote(isRemote);
@@ -141,9 +141,7 @@ public class DatabaseLoader extends DatabaseConstants {
     return jobs;
   }
 
-  public static ArrayList<Application> loadApplications() {
-    ArrayList<Application> applications = new ArrayList<>();
-    
+  public static void loadApplications() {    
     try {
       FileReader reader = new FileReader(JOBS_FILE);
       JSONParser parser = new JSONParser();
@@ -156,12 +154,14 @@ public class DatabaseLoader extends DatabaseConstants {
         UUID uidJob = UUID.fromString(jobID);
         String studentID = (String)applicationJSON.get(JOBS_EMPLOYER_ID);
         UUID uidStudent = UUID.fromString(studentID);
+        Application app = new Application(uidStudent, uidJob);
+        app.setApplicationID(uid);
       }
-      return applications;
+      return;
     } catch (Exception e) {
         e.printStackTrace();
     }
-    return applications;
+    return;
   }
 
   public static ArrayList<Company> loadCompanies() {
