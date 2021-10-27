@@ -2,7 +2,7 @@ package JobSearcher;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class Employer {
+public class Employer extends User{
     private UUID employerID;
     private UUID companyID;  
     private String username;

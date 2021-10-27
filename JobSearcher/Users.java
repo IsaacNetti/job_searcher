@@ -3,10 +3,12 @@ import java.util.ArrayList;
 
 public class Users {
     private static Users users;
-    private ArrayList<User> userList;
+    private ArrayList<Student> studentList;
+    private ArrayList<Employer> employerList;
 
     public Users(){
-        userList = DatabaseLoader.loadResumes();
+        studentList = DatabaseLoader.loadStudents();
+        employerList = DatabaseLoader.loadEmployers();
     }
     public static Users getInstance(){
         if (users == null) {
@@ -14,16 +16,16 @@ public class Users {
           }
           return users;
     }
-    public boolean haveUser(String username){
-        for (User c : userList) {
+    public boolean haveStudent(String username){
+        for (Student c : studentList) {
             if (c.getUsername() == username) {
               return true;
             }
           }
           return false;
     }
-    public User getUser(String username){
-        for (User c : userList) {
+    public User getStudent(String username){
+        for (Student c : studentList) {
             if (c.getUsername() == username) {
               return c;
             }
@@ -31,4 +33,21 @@ public class Users {
           System.out.println("User does not exist");
           return null;
     }
+    public boolean haveEmployer(String username){
+      for (Employer c : employerList) {
+          if (c.getUsername() == username) {
+            return true;
+          }
+        }
+        return false;
+  }
+  public User getEmployer(String username){
+      for (Employer c : employerList) {
+          if (c.getUsername() == username) {
+            return c;
+          }
+        }
+        System.out.println("User does not exist");
+        return null;
+  }
 }

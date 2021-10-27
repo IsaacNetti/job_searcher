@@ -2,7 +2,7 @@ package JobSearcher;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class Student {
+public class Student extends User{
     private String username;
     private String password;
     private String firstName;
@@ -47,6 +47,9 @@ public class Student {
     public UUID getStudentId() {
         return studentId;
     }
+    public String getUsername() {
+        return username;
+    }
     public void apply(Job job, Student student){
         job.addApplicant(student);
     }
@@ -57,4 +60,5 @@ public class Student {
     public void addRating(int rating, String review){
         
     }
+    
 }
