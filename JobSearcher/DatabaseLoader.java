@@ -118,13 +118,21 @@ public class DatabaseLoader extends DatabaseConstants {
         UUID uidEmployer = UUID.fromString(employerID);
         String startDate = (String)jobJSON.get(JOBS_START_DATE);
         String endDate = (String)jobJSON.get(JOBS_END_DATE);
+        double salary = (double)jobJSON.get(JOBS_SALARY);
+        String description = (String)jobJSON.get(JOBS_DESCRIPTION);
+        String location = (String)jobJSON.get(JOBS_LOCATION);
+        boolean isRemote = (boolean)jobJSON.get(JOBS_REMOTE);
 
         jobs.add(new Job());
         jobs.get(jobs.size() - 1).setJobID(uid);
         jobs.get(jobs.size() - 1).setName(name);
-        jobs.get(jobs.size() - 1).setCom(name); 
         jobs.get(jobs.size() - 1).setStartDate(startDate);
         jobs.get(jobs.size() - 1).setEndDate(endDate);
+        jobs.get(jobs.size() - 1).setSalary(salary); 
+        jobs.get(jobs.size() - 1).setCompany(uidCompany);
+        jobs.get(jobs.size() - 1).setDescription(description); 
+        jobs.get(jobs.size() - 1).setLocation(location);
+        jobs.get(jobs.size() - 1).setRemote(isRemote);
       }
       return jobs;
     } catch (Exception e) {

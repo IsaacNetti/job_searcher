@@ -3,22 +3,26 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class Job {
+    private UUID jobID;  
     private String name;
     private String startDate;
     private String endDate;
     private Double salary;
     private String description;
     private String location;
-    private UUID jobID;
     private boolean isRemote;
     private ArrayList<Application> applicants;
-    private String company;
+    private Company company;
+    private Employer employer;
 
     public Job(){
 
     }
     public void setJobID(UUID jobID) {
         this.jobID = jobID;
+    }
+    public void setName(String name) {
+      this.name = name;
     }
     public void setStartDate(String startDate) {
         this.startDate = startDate;
@@ -38,11 +42,13 @@ public class Job {
     public void setRemote(boolean isRemote) {
         this.isRemote = isRemote;
     }
-    public void setCompany(String company) {
-        this.company = company;
+    public void setCompany(UUID companyID) {
+        Companies list = Companies.getInstance();
+        this.company = list.getCompany(companyID);
     }
-    public void setName(String name) {
-        this.name = name;
+    public void setEmployer(UUID employerID) {
+        Employers list = Employers.getInstance();
+        this.employer = list.getCompany(employerID);
     }
 
     public void addApplicant(Student student){
@@ -64,8 +70,11 @@ public class Job {
     public String getDescription() {
         return description;
     }
-    public String getCompany() {
+    public Company getCompany() {
         return company;
+    }
+    public Employer getEmployer() {
+        return employer;
     }
     public String getLocation() {
         return location;
