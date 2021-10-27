@@ -26,7 +26,7 @@ public class Resume {
     public void setWorkExperience(ArrayList<Experience> workExperience){
         this.workExperience = workExperience;
     }
-    public void addWorkExperience(String title, Company company, String startDate, String endDate, String JobDescription){
+    public void addWorkExperience(String title, String company, String startDate, String endDate, String JobDescription){
         Experience experience = new Experience(title, company, startDate, endDate, JobDescription);
         workExperience.add(experience);
     }
@@ -41,9 +41,6 @@ public class Resume {
     }
     public String getEducation() {
         return education;
-    }
-    public String getHobbies() {
-        return hobbies;
     }
     public Student getUser() {
         return user;

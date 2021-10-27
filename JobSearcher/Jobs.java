@@ -33,4 +33,7 @@ public class Jobs {
           System.out.println("Job does not exist");
           return null;
     }
+    public ArrayList<Job> getJobs(){
+      return jobList;
+    }
 }

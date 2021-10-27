@@ -4,9 +4,10 @@ import java.util.ArrayList;
 
 public class CompanySearch {
     private String[] filters;
+    private boolean[] filter;
 
     public CompanySearch(){
-
+        filter = new boolean[]{location, sector, industry};
     }
     public String[] displayFilters(){
         return filters;
