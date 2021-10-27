@@ -7,8 +7,7 @@ public class Resume {
     private ArrayList<Experience> workExperience;
     private String education;
     private String achievements;
-    private String hobbies;
-    
+
     public Resume(){
 
     }
@@ -24,8 +23,8 @@ public class Resume {
     public void setUser(Student user) {
         this.user = user;
     }
-    public void setHobbies(String hobbies) {
-        this.hobbies = hobbies;
+    public void setWorkExperience(ArrayList<Experience> workExperience){
+        this.workExperience = workExperience;
     }
     public void addWorkExperience(String title, Company company, String startDate, String endDate, String JobDescription){
         Experience experience = new Experience(title, company, startDate, endDate, JobDescription);
