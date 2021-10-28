@@ -16,6 +16,9 @@ public class Companies {
       }
       return companies;
     }
+    public ArrayList<Company> getCompanies(){
+      return companylist;
+    }
     public boolean haveCompany(String companyName) {
         for (Company c : companylist) {
           if (c.getName().equalsIgnoreCase(companyName)) {
