@@ -9,7 +9,7 @@ public class JobSearch {
 
     public ArrayList<Job> search(){
         ArrayList<Job> results = new ArrayList<Job>();
-        Jobs list = new Jobs();
+        Jobs list = Jobs.getInstance();
         for(Job c : list.getJobs()){
             if(c.getCompany().getName().contains(keyword)){
                 results.add(c);
