@@ -12,11 +12,15 @@ public class Student extends User{
     private String eduAccount;
     private String phoneNumber;
     private ArrayList<Job> favorites;
+    private Boolean isAdmin;
     private Ratings ratings;
     private Resume resume;
 
     public Student(){
 
+    }
+    public void setIsAdmin(Boolean isAdmin) {
+        this.isAdmin = isAdmin;
     }
     public void setStudentID(UUID studentID) {
         this.studentId = studentID;
@@ -48,6 +52,9 @@ public class Student extends User{
     public void setResume(Resume resume) {
         this.resume = resume;
     }
+    public Boolean getIsAdmin() {
+        return isAdmin;
+    }
     public Ratings getRatings(){
         return this.ratings;
     }
@@ -71,4 +78,7 @@ public class Student extends User{
         ratings.addRating(rating);
     }
     
+    public String toString(){
+        return "";
+    }
 }

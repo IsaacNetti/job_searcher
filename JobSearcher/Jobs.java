@@ -36,4 +36,25 @@ public class Jobs {
     public ArrayList<Job> getJobs(){
       return jobList;
     }
+    public Job createJob(String name, String startDate, String endDate, Double salary,String description,String location,boolean isRemote, Company company,Employer employer){
+      Job job = new Job();
+      job.setName(name);
+      job.setStartDate(startDate);
+      job.setEndDate(endDate);
+      job.setSalary(salary);
+      job.setDescription(description);
+      job.setLocation(location);
+      job.setRemote(isRemote);
+      job.setCompany(company.getCompanyID());
+      job.setEmployer(employer.getEmployerID());
+      return job;
+    }
+    public void addJob(Job job){
+      jobList.add(job);
+      DatabaseWriter.saveJobs();
+    }
+    public void deleteJob(Job job){
+      jobList.remove(job);
+      DatabaseWriter.saveJobs();
+    }
 }

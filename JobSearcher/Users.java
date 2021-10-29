@@ -21,6 +21,10 @@ public class Users {
       studentList.add(student);
       DatabaseWriter.saveStudents();
     }
+    public void deleteStudent(Student student){
+      studentList.remove(student);
+      DatabaseWriter.saveStudents();
+    }
     public boolean haveStudent(String username){
         for (Student c : studentList) {
             if (c.getUsername() == username) {
@@ -46,7 +50,15 @@ public class Users {
         }
         return false;
   }
-  public Employer getEmployer(UUID employerID){
+    public void createEmployer(Employer employer){
+      employerList.add(employer);
+      DatabaseWriter.saveEmployers();
+  }
+  public void deleteEmployer(Employer employer){
+    employerList.remove(employer);
+    DatabaseWriter.saveEmployers();
+}
+    public Employer getEmployer(UUID employerID){
       for (Employer c : employerList) {
           if (c.getEmployerID() == employerID) {
             return c;

@@ -27,6 +27,10 @@ public class Companies {
         }
         return false;
     }
+    public void addCompany(Company company){
+      companylist.add(company);
+      DatabaseWriter.saveCompanies();
+    }
     public Company getCompany(UUID companyID) {
       for (Company c : companylist) {
         if (c.getCompanyID() == companyID) {

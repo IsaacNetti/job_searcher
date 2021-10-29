@@ -6,15 +6,22 @@ public class Employer extends User{
     private UUID employerID;
     private UUID companyID;  
     private String username;
-    private String password;  
+    private String password; 
+    private Boolean isAdmin; 
     private String firstName;
     private String lastName;
     private ArrayList<Job> listings;
-    private String company;
+    private Company company;
     private String phoneNumber;
 
     public Employer(){
 
+    }
+    public void setIsAdmin(Boolean isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+    public void setListings(ArrayList<Job> listings) {
+        this.listings = listings;
     }
     public void setEmployerID(UUID employerID) {
       this.employerID = employerID;
@@ -22,7 +29,7 @@ public class Employer extends User{
     public void setCompanyID(UUID companyID) {
       this.companyID = companyID;
     }
-    public void setCompany(String company){
+    public void setCompany(Company company){
       this.company = company;
     }
     public void setUsername(String username){
@@ -39,6 +46,9 @@ public class Employer extends User{
     }
     public void setPhoneNumber(String phoneNumber) {
       this.phoneNumber = phoneNumber;
+    }
+    public Boolean getIsAdmin() {
+        return isAdmin;
     }
     public UUID getEmployerID() {
       return employerID;
@@ -64,21 +74,18 @@ public class Employer extends User{
     public String getPhoneNumber() {
         return phoneNumber;
     }
-    public String getCompany() {
+    public Company getCompany() {
         return company;
     }
-    public Job createJob(String jobCreatingParameters){
-        Job listing = new Job();
-        return listing;
+    public Job createJob(String name, String startDate, String endDate, Double salary,String description,String location,boolean isRemote, Company company,Employer employer){
+       Job listing = Jobs.getInstance().createJob(name, startDate, endDate, salary, description, location, isRemote, company, employer);
+      return listing;
     }
     public void postJob(Job job){
-
+      Jobs.getInstance().addJob(job);
     }
-    public ArrayList<Application> seeApplications(Job job){
+    public ArrayList<Student> seeApplications(Job job){
         return job.getApplicants();
-    }
-    public void hideJob(Job job){
-
     }
     public Ratings getRatings(Student student){
         return student.getRatings();

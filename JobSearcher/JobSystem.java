@@ -27,6 +27,7 @@ public class JobSystem {
         student.setEduAccount(eduAccount);
         student.setPhoneNumber(phoneNumber);
         student.setRatings(studentRatings);
+        student.setIsAdmin(false);
         Users.getInstance().createStudent(student);
     }
     public void createResume(Student student, String skills, String education, String achievements){
@@ -54,43 +55,86 @@ public class JobSystem {
         DatabaseWriter.saveStudents();
 
     }
-    public void createEmployer(User user){
+    public void apply(Student student, Job job){
+        job.addApplicant(student);
+    }
+    public void displayJobs(ArrayList<Job> jobList){
+        for (Job job: jobList) {
+            System.out.println(job);
+        }
+    }
+    public void searchJobs(String keyword){
+        JobSearch search = new JobSearch(keyword);
+        search.search();
+    }
+    public void searchCompany(String keyword){
+        CompanySearch search = new CompanySearch(keyword);
+        search.search;
+    }
+    public void createEmployer(User user, String firstName,String lastName, String phoneNumber){
+        Employer employer = new Employer();
+        UUID employerID = UUID.randomUUID();
+        ArrayList<Job> listings = new ArrayList<Job>();
+        employer.setUsername(user.getUsername());
+        employer.setPassword(user.getPassword());
+        employer.setEmployerID(employerID);
+        employer.setFirstName(firstName);
+        employer.setLastName(lastName);
+        employer.setPhoneNumber(phoneNumber);
+        employer.setListings(listings);
+        employer.setIsAdmin(false);
+        Users.getInstance().createEmployer(employer);
+
 
     }
-    public void deleteUser(){
-
+    public void addCompany(Company company, Employer employer){
+        employer.setCompany(company);
+        DatabaseWriter.saveEmployers();
     }
-    public void setAdmin(){
-
+    public void createJob(String name, String startDate, String endDate, Double salary,String description,String location,boolean isRemote, Company company,Employer employer){
+        Job job = Jobs.getInstance().createJob(name, startDate, endDate, salary, description, location, isRemote, company, employer);
+        Jobs.getInstance().addJob(job);
     }
-    public void removeAdmin(){
-
+    public void removeJob(Job job){
+        Jobs.getInstance().deleteJob(job);
     }
-    public void createJob(){
-
+    public void rejectApplicant(Student student, Job job){
+        job.removeApplicant(student);
+        DatabaseWriter.saveJobs();
     }
-    public void removeJob(){
-
+    public void displayApplicants(ArrayList<Student> studentList){
+        for (Student student : studentList) {
+            System.out.println(student);
+        }
     }
-    public void apply(){
-
+    public void setStudentAdmin(Student student){
+        student.setIsAdmin(true);
+        DatabaseWriter.saveStudents();
     }
-    public void rateUser(){
-
+    public void setEmployerAdmin(Employer employer){
+        employer.setIsAdmin(true);
     }
-    public void rejectApplicant(){
-
+    public void removeStudentAdmin(Student student){
+        student.setIsAdmin(false);
+        DatabaseWriter.saveStudents();
     }
-    public void addExperience(){
-
+    public void removeEmployerAdmin(Employer employer){
+        employer.setIsAdmin(false);
     }
-    public void searchJobs(){
-
+    public void deleteStudent(Student student){
+        Users.getInstance().deleteStudent(student);
     }
-    public void searchCompany(){
-
+    public void deleteEmployer(Employer employer){
+        Users.getInstance().deleteEmployer(employer);
     }
-    public void displayApplicants(){
-        
+    public void createCompany(String name, String location, String industry, String sector){
+        Company company = new Company();
+        UUID companyID = UUID.randomUUID();
+        company.setCompanyID(companyID);
+        company.setName(name);
+        company.setLocation(location);
+        company.setIndustry(industry);
+        company.setSector(sector);
+        Companies.getInstance().addCompany(company);
     }
 }
