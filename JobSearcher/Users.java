@@ -17,6 +17,10 @@ public class Users {
           }
           return users;
     }
+    public void createStudent(Student student){
+      studentList.add(student);
+      DatabaseWriter.saveStudents();
+    }
     public boolean haveStudent(String username){
         for (Student c : studentList) {
             if (c.getUsername() == username) {

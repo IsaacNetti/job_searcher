@@ -79,7 +79,7 @@ public class DatabaseLoader extends DatabaseConstants {
           String startDate = (String)experienceJSON.get(EXPERIENCES_START);
           String endDate = (String)experienceJSON.get(EXPERIENCES_END);
           String description = (String)experienceJSON.get(EXPERIENCES_DESCRIPTION);
-          experiences.add(new Experience(title, company, startDate, endDate, description));
+          experiences.add(new Experience());
         } 
         students.add(new Student());
         students.get(students.size() - 1).setStudentID(uid);

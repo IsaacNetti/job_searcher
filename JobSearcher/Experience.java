@@ -7,12 +7,8 @@ public class Experience {
     private String endDate;
     private String jobDescription;
     
-    public Experience(String title, String company, String startDate, String endDate, String JobDescription){
-        setTitle(title);
-        setCompany(company);
-        setStartDate(startDate);
-        setEndDate(endDate);
-        setJobDescription(jobDescription);
+    public Experience(){
+        
     }
     public void setTitle(String title) {
         this.title = title;

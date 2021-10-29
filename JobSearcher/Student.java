@@ -42,6 +42,12 @@ public class Student extends User{
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+    public void setRatings(Ratings ratings) {
+        this.ratings = ratings;
+    }
+    public void setResume(Resume resume) {
+        this.resume = resume;
+    }
     public Ratings getRatings(){
         return this.ratings;
     }
@@ -61,8 +67,8 @@ public class Student extends User{
         this.resume.setAchievements(achievements);
         this.resume.setWorkExperience(workExperience);
     }
-    public void addRating(int rating, String review){
-        
+    public void addRating(int rating){
+        ratings.addRating(rating);
     }
     
 }
