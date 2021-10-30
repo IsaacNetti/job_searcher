@@ -43,8 +43,8 @@ public class Company {
     public String getSector(){
         return sector;
     }
-    public void addEmployer(Employer employer,Company company){
-      employer.setCompany(company);
+    public void addEmployer(Employer employer){
+      employer.setCompany(companyID);
     }
     public void addJob(Job job){
         job.setCompany(companyID);

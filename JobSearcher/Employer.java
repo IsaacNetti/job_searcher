@@ -4,7 +4,6 @@ import java.util.UUID;
 
 public class Employer extends User{
     private UUID employerID;
-    private UUID companyID;  
     private String username;
     private String password; 
     private Boolean isAdmin; 
@@ -26,11 +25,9 @@ public class Employer extends User{
     public void setEmployerID(UUID employerID) {
       this.employerID = employerID;
     }
-    public void setCompanyID(UUID companyID) {
-      this.companyID = companyID;
-    }
-    public void setCompany(Company company){
-      this.company = company;
+    public void setCompany(UUID companyID){
+      Companies list = Companies.getInstance();
+      this.company = list.getCompany(companyID);
     }
     public void setUsername(String username){
       this.username = username;
@@ -52,9 +49,6 @@ public class Employer extends User{
     }
     public UUID getEmployerID() {
       return employerID;
-    }
-    public UUID getCompanyID() {
-      return companyID;
     }
     public String getUsername() {
       return username;

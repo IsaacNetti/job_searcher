@@ -22,7 +22,6 @@ public class DatabaseLoader extends DatabaseConstants {
         UUID uid = UUID.fromString(id);
         String companyID = (String)employerJSON.get(EMPLOYERS_COMPANY_ID);
         UUID uidCompany = UUID.fromString(companyID);
-        String company = (String)employerJSON.get(EMPLOYERS_COMPANY);
         String username = (String)employerJSON.get(EMPLOYERS_USERNAME);
         String password = (String)employerJSON.get(EMPLOYERS_PASSWORD);
         String firstName = (String)employerJSON.get(EMPLOYERS_FIRSTNAME);
@@ -31,8 +30,7 @@ public class DatabaseLoader extends DatabaseConstants {
 
         employers.add(new Employer());
         employers.get(employers.size() - 1).setEmployerID(uid);
-        employers.get(employers.size() - 1).setCompanyID(uidCompany);
-        employers.get(employers.size() - 1).setCompany(company);
+        employers.get(employers.size() - 1).setCompany(uidCompany);
         employers.get(employers.size() - 1).setUsername(username);
         employers.get(employers.size() - 1).setPassword(password);
         employers.get(employers.size() - 1).setFirstName(firstName);

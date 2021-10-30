@@ -7,7 +7,7 @@ public class CompanySearch {
     private boolean[] filter;
 
     public CompanySearch(){
-        filter = new boolean[]{location, sector, industry};
+        filters = new String[]{"location", "sector", "industry"};
     }
     public String[] displayFilters(){
         return filters;

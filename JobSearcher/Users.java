@@ -34,9 +34,9 @@ public class Users {
           System.out.println("User does not exist");
           return false;
     }
-    public Student getStudent(String username){
+    public Student getStudent(UUID studentID){
         for (Student c : studentList) {
-            if (c.getUsername() == username) {
+            if (c.getStudentId() == studentID) {
               return c;
             }
           }
@@ -59,9 +59,9 @@ public class Users {
     employerList.remove(employer);
     DatabaseWriter.saveEmployers();
 }
-    public Employer getEmployer(String username){
+    public Employer getEmployer(UUID employerID){
       for (Employer c : employerList) {
-          if (c.getUsername() == username) {
+          if (c.getEmployerID() == employerID) {
             return c;
           }
         }
