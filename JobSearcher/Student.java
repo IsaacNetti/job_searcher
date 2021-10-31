@@ -81,4 +81,37 @@ public class Student extends User{
     public String toString(){
         return "";
     }
+    public String getFirstName(){
+        return firstName;
+    }
+    public String getLastName(){
+        return lastName;
+    }
+    public String getGPA(){
+        return gpa;
+    }
+    public String getEduAccount(){
+        return eduAccount;
+    }
+    public String getPhoneNumber(){
+        return phoneNumber;
+    }
+    public ArrayList<Job> getFavorites(){
+        return favorites;
+    }
+    public Resume getResume(){
+        return resume;
+    }
+    public String getEducation(){
+        return education;
+    }
+    public String getAchievements(){
+        return achievements;
+    }
+    public String getSkills(){
+        return skills;
+    }
+    public String getExperience(){
+        return workExperience;
+    }
 }

@@ -40,4 +40,8 @@ public class Companies {
       System.out.println("Company does not exist");
       return null;
     }
+    public void deleteCompany(Company company){
+      companylist.remove(company);
+      DatabaseWriter.saveCompanies();
+    }
 }
