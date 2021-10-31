@@ -61,8 +61,25 @@ public class DatabaseLoader extends DatabaseConstants {
         String lastName = (String)studentJSON.get(STUDENTS_LASTNAME);
         String gpa = (String)studentJSON.get(STUDENTS_GPA);
         String eduAccount = (String)studentJSON.get(STUDENTS_EDU_ACCOUNT);
-        String favorites = (String)studentJSON.get(STUDENTS_FAVORITES);
-        String ratings = (String)studentJSON.get(STUDENTS_RATINGS);
+        JSONArray favoritesJSON = (JSONArray)studentJSON.get(STUDENTS_FAVORITES);
+        ArrayList<UUID> ids = new ArrayList<>();
+        for (int j = 0; j < favoritesJSON.size(); j++) {
+          JSONObject favoriteJSON = (JSONObject)favoritesJSON.get(j);
+          String jobID = (String)favoriteJSON.get(FAVORITES_ID);
+          UUID uidJob = UUID.fromString(jobID);
+          ids.add(uidJob);
+        }
+        
+        Ratings studentRatings = new Ratings();
+        ArrayList<Integer> ratings = new ArrayList<>();
+        JSONArray ratingsJSON = (JSONArray)studentJSON.get(STUDENTS_RATINGS);
+        for (int j = 0; j < ratingsJSON.size(); j++) {
+          JSONObject ratingJSON = (JSONObject)ratingsJSON.get(j);
+          ratings.add((int)ratingJSON.get(RATINGS));
+        }
+        studentRatings.setRatings(ratings);
+        studentRatings.setStudent(uid);
+        
         String phoneNumber = (String)studentJSON.get(STUDENTS_PHONE_NUMBER);
         String education = (String)studentJSON.get(STUDENTS_EDUCATION);
         String achievements = (String)studentJSON.get(STUDENTS_ACHIEVEMENTS);
@@ -71,13 +88,18 @@ public class DatabaseLoader extends DatabaseConstants {
         ArrayList<Experience> experiences = new ArrayList<>();
         JSONArray experiencesJSON = (JSONArray)studentJSON.get(STUDENTS_EXPERIENCE);
         for (int j = 0; j < experiencesJSON.size(); j++) {
-          JSONObject experienceJSON = (JSONObject)experiencesJSON.get(i);
+          JSONObject experienceJSON = (JSONObject)experiencesJSON.get(j);
           String title = (String)experienceJSON.get(EXPERIENCES_TITLE);
           String company = (String)experienceJSON.get(EXPERIENCES_COMPANY);
           String startDate = (String)experienceJSON.get(EXPERIENCES_START);
           String endDate = (String)experienceJSON.get(EXPERIENCES_END);
           String description = (String)experienceJSON.get(EXPERIENCES_DESCRIPTION);
           experiences.add(new Experience());
+          experiences.get(experiences.size() - 1).setTitle(title);
+          experiences.get(experiences.size() - 1).setCompany(company);
+          experiences.get(experiences.size() - 1).setStartDate(startDate);
+          experiences.get(experiences.size() - 1).setEndDate(endDate);
+          experiences.get(experiences.size() - 1).setJobDescription(description);
         } 
         students.add(new Student());
         students.get(students.size() - 1).setStudentID(uid);
@@ -88,6 +110,7 @@ public class DatabaseLoader extends DatabaseConstants {
         students.get(students.size() - 1).setGpa(gpa);
         students.get(students.size() - 1).setEduAccount(eduAccount);
         students.get(students.size() - 1).setPhoneNumber(phoneNumber);
+        students.get(students.size() - 1).setRatings(studentRatings);
         students.get(students.size() - 1).createResume(skills, education, achievements, experiences);
       }
       return students;

@@ -27,6 +27,10 @@ public abstract class DatabaseConstants {
   protected static final String STUDENTS_SKILLS = "skills";
   protected static final String STUDENTS_EXPERIENCE = "experience";
 
+  protected static final String RATINGS = "rating";
+  
+  protected static final String FAVORITES_ID = "id";
+
   protected static final String EXPERIENCES_TITLE = "title";
   protected static final String EXPERIENCES_COMPANY = "company";
   protected static final String EXPERIENCES_START = "start";

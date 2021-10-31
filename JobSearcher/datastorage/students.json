@@ -8,8 +8,12 @@
         "gpa":"3.56",
         "eduAccount":"BBA1@email.sc.edu",
         "phoneNumber":"8039899023",
-        "favorites":"Marketing and Communications Full-Time for Apple, Social Media Intern for Dell",
-        "ratings":"4.4",
+        "favorites":[
+            {"id":"34644dad-c03e-4cd4-b1a9-d2e5d1c9485"}
+        ],
+        "ratings":[
+            {"rating":4},{"rating":3}
+        ],
         "education":"University of South Carolina",
         "achievements":"Dean's List",
         "skills":"Java, C++, HTML, Microsoft Office Suite",
@@ -25,7 +29,9 @@
         "gpa":"3.77",
         "eduAccount":"KayleeQ01@email.sc.edu",
         "phoneNumber":"6455120099",
-        "favorites":"Business Intern for Berskhire Hathaway, Accountant Full-Time for First Citizens Bank, Financial Consultant Part-Time for Sony",
+        "favorites":[
+          {"id":"34644dad-c03e-4cd4-b1a9-d2e5d1c9486"}
+        ],
         "ratings":"5.0",
         "education":"University of South Carolina",
         "achievements":"Dean's List",
