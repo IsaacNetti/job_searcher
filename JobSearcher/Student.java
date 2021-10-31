@@ -74,6 +74,10 @@ public class Student extends User{
         this.resume.setAchievements(achievements);
         this.resume.setWorkExperience(workExperience);
     }
+    public void addFavorites(UUID jobID) {
+        Jobs list = Jobs.getInstance();
+        favorites.add(list.getJob(jobID));
+    }
     public void addRating(int rating){
         ratings.addRating(rating);
     }

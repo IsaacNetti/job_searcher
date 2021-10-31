@@ -62,14 +62,14 @@ public class DatabaseLoader extends DatabaseConstants {
         String gpa = (String)studentJSON.get(STUDENTS_GPA);
         String eduAccount = (String)studentJSON.get(STUDENTS_EDU_ACCOUNT);
         JSONArray favoritesJSON = (JSONArray)studentJSON.get(STUDENTS_FAVORITES);
-        ArrayList<UUID> ids = new ArrayList<>();
+        ArrayList<UUID> favoritesIDS = new ArrayList<>();
         for (int j = 0; j < favoritesJSON.size(); j++) {
           JSONObject favoriteJSON = (JSONObject)favoritesJSON.get(j);
           String jobID = (String)favoriteJSON.get(FAVORITES_ID);
           UUID uidJob = UUID.fromString(jobID);
-          ids.add(uidJob);
+          favoritesIDS.add(uidJob);
         }
-        
+
         Ratings studentRatings = new Ratings();
         ArrayList<Integer> ratings = new ArrayList<>();
         JSONArray ratingsJSON = (JSONArray)studentJSON.get(STUDENTS_RATINGS);
@@ -110,6 +110,9 @@ public class DatabaseLoader extends DatabaseConstants {
         students.get(students.size() - 1).setGpa(gpa);
         students.get(students.size() - 1).setEduAccount(eduAccount);
         students.get(students.size() - 1).setPhoneNumber(phoneNumber);
+        for (UUID favoriteID : favoritesIDS) {
+          students.get(students.size() - 1).addFavorites(favoriteID);
+        }
         students.get(students.size() - 1).setRatings(studentRatings);
         students.get(students.size() - 1).createResume(skills, education, achievements, experiences);
       }
