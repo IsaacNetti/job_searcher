@@ -69,4 +69,10 @@ public class Users {
         System.out.println("User does not exist");
         return null;
   }
+  public ArrayList<Employer> getEmployers(){
+    return employerList;
+  }
+  public ArrayList<Student> getStudents(){
+    return studentList;
+  }
 }

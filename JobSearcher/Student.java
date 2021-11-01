@@ -63,6 +63,9 @@ public class Student extends User{
     public UUID getStudentId() {
         return studentId;
     }
+    public String getUsername() {
+        return username;
+    }
     public void apply(Job job, Student student){
         job.addApplicant(student);
     }
@@ -79,9 +82,32 @@ public class Student extends User{
     }
     public void addRating(int rating){
         ratings.addRating(rating);
-    }
-    
+    }  
     public String toString(){
         return "";
+    }
+    public String getFirstName(){
+        return firstName;
+    }
+    public String getLastName(){
+        return lastName;
+    }
+    public String getGPA(){
+        return gpa;
+    }
+    public String getEduAccount(){
+        return eduAccount;
+    }
+    public String getPhoneNumber(){
+        return phoneNumber;
+    }
+    public ArrayList<Job> getFavorites(){
+        return favorites;
+    }
+    public Resume getResume(){
+        return resume;
+    }
+    public ArrayList<Experience> getExperience(){
+        return resume.getWorkExperience();
     }
 }
