@@ -63,6 +63,9 @@ public class Student extends User{
     public UUID getStudentId() {
         return studentId;
     }
+    public String getUsername() {
+        return username;
+    }
     public void apply(Job job, Student student){
         job.addApplicant(student);
     }
@@ -79,8 +82,7 @@ public class Student extends User{
     }
     public void addRating(int rating){
         ratings.addRating(rating);
-    }
-    
+    }  
     public String toString(){
         return "";
     }
@@ -105,16 +107,7 @@ public class Student extends User{
     public Resume getResume(){
         return resume;
     }
-    public String getEducation(){
-        return education;
-    }
-    public String getAchievements(){
-        return achievements;
-    }
-    public String getSkills(){
-        return skills;
-    }
-    public String getExperience(){
-        return workExperience;
+    public ArrayList<Experience> getExperience(){
+        return resume.getWorkExperience();
     }
 }

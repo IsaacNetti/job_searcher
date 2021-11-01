@@ -121,6 +121,28 @@ public class DatabaseWriter extends DatabaseConstants{
 
     public static JSONObject getStudentsJSON(Student student){
             JSONObject studentsDetails = new JSONObject();
+            JSONArray studentRatings = new JSONArray();
+            JSONArray studentFavorites = new JSONArray();
+            JSONArray studentExperiences = new JSONArray();
+            for (int i = 0; i < student.getRatings().getRatings().size(); i++) {
+                JSONObject rating = new JSONObject();
+                rating.put(RATINGS, student.getRatings().getRatings().get(i));
+                studentRatings.add(rating);
+            }
+            for (int i = 0; i < student.getFavorites().size(); i++) {
+                JSONObject favorite = new JSONObject();
+                favorite.put(FAVORITES_ID, student.getFavorites().get(i));
+                studentFavorites.add(favorite);
+            }
+            for (int i = 0; i < student.getResume().getWorkExperience().size(); i++) {
+                JSONObject experiences = new JSONObject();
+                experiences.put(EXPERIENCES_TITLE, student..getResume().getWorkExperience().get(i));
+                experiences.put(EXPERIENCES_COMPANY, student.getResume().getWorkExperience().get(i).getCompany());
+                experiences.put(EXPERIENCES_START, student.getResume().getWorkExperience().get(i).getStartDate()));
+                experiences.put(EXPERIENCES_END, student.getResume().getWorkExperience().get(i).getEndDate()));
+                experiences.put(EXPERIENCES_DESCRIPTION, student.getResume().getWorkExperience().get(i).getJobDescription());
+                studentExperiences.add(experiences);
+            }
             studentsDetails.put(STUDENTS_ID, student.getStudentId());
             studentsDetails.put(STUDENTS_USERNAME, student.getUsername());
             studentsDetails.put(STUDENTS_PASSWORD, student.getPassword());
@@ -130,13 +152,43 @@ public class DatabaseWriter extends DatabaseConstants{
             studentsDetails.put(STUDENTS_EDU_ACCOUNT, student.getEduAccount());
             studentsDetails.put(STUDENTS_PHONE_NUMBER, student.getPhoneNumber());
             studentsDetails.put(STUDENTS_FAVORITES, student.getFavorites());
-            studentsDetails.put(STUDENTS_RATINGS, student.getRatings());
             studentsDetails.put(STUDENTS_EDUCATION, student.getEducation());
             studentsDetails.put(STUDENTS_ACHIEVEMENTS, student.getAchievements());
             studentsDetails.put(STUDENTS_SKILLS, student.getSkills());
             studentsDetails.put(STUDENTS_EXPERIENCE, student.getExperience());
+            studentsDetails.put(STUDENTS_RATINGS, studentRatings);
 
 
         return studentsDetails;
+    }
+    public static void saveApplications(){
+        Jobs jobs = Jobs.getInstance();
+        JSONArray studentID = new JSONArray();
+        for(int i = 0; i<Jobs.size(i); i++){
+            
+        }
+        ArrayList<Application> Apps = users.getEmployers();
+        JSONArray jsonUsers = new JSONArray();
+
+        for(int i = 0; i<workers.size(); i++){
+            jsonUsers.add(getEmployersJSON(workers.get(i)));
+        }
+
+        try(FileWriter file = new FileWriter(APPLICATIONS_FILE)){
+            file.write(jsonUsers.toJSONString());
+            file.flush();
+            
+        } catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public static JSONObject getApplicationsJSON(Application application){
+            JSONObject applicationsDetails = new JSONObject();
+            applicationsDetails.put(APPLICATIONS_ID, application.getApplicationID());
+            applicationsDetails.put(APPLICATIONS_JOB_ID, application.getJob());
+            applicationsDetails.put(APPLICATIONS_STUDENT_ID, application.getStudent());
+           
+        return applicationsDetails;
     }
 }
