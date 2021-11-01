@@ -12,6 +12,7 @@ public class Job {
     private String location;
     private boolean isRemote;
     private ArrayList<Student> applicants;
+    private ArrayList<Application> applications;
     private Company company;
     private Employer employer;
 
@@ -93,5 +94,8 @@ public class Job {
     }
     public String toString(){
         return "";
+    }
+    public ArrayList<Application> getApplications(){
+        return applications;
     }
 }

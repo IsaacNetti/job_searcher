@@ -152,9 +152,9 @@ public class DatabaseWriter extends DatabaseConstants{
             studentsDetails.put(STUDENTS_EDU_ACCOUNT, student.getEduAccount());
             studentsDetails.put(STUDENTS_PHONE_NUMBER, student.getPhoneNumber());
             studentsDetails.put(STUDENTS_FAVORITES, student.getFavorites());
-            studentsDetails.put(STUDENTS_EDUCATION, student.getEducation());
-            studentsDetails.put(STUDENTS_ACHIEVEMENTS, student.getAchievements());
-            studentsDetails.put(STUDENTS_SKILLS, student.getSkills());
+            studentsDetails.put(STUDENTS_EDUCATION, student..getResume().getEducation());
+            studentsDetails.put(STUDENTS_ACHIEVEMENTS, student.getResume().getAchievements());
+            studentsDetails.put(STUDENTS_SKILLS, student.getResume().getSkills());
             studentsDetails.put(STUDENTS_EXPERIENCE, student.getExperience());
             studentsDetails.put(STUDENTS_RATINGS, studentRatings);
 
@@ -163,19 +163,16 @@ public class DatabaseWriter extends DatabaseConstants{
     }
     public static void saveApplications(){
         Jobs jobs = Jobs.getInstance();
+        ArrayList<Job> opportunity = jobs.getJobs();
         JSONArray studentID = new JSONArray();
-        for(int i = 0; i<Jobs.size(i); i++){
-            
+        JSONArray Jobs = new JSONArray();
+        JSONArray jsonApplications = new JSONArray();
+        for(int i = 0; i<opportunity.size(); i++){
+            for(int j = 0; j<opportunity.get(i).getApplications().size(); j++){
+                jsonApplications.add(getApplicationsJSON(opportunity.get(i).getApplications().get(j)));
         }
-        ArrayList<Application> Apps = users.getEmployers();
-        JSONArray jsonUsers = new JSONArray();
-
-        for(int i = 0; i<workers.size(); i++){
-            jsonUsers.add(getEmployersJSON(workers.get(i)));
-        }
-
         try(FileWriter file = new FileWriter(APPLICATIONS_FILE)){
-            file.write(jsonUsers.toJSONString());
+            file.write(jsonApplications.toJSONString());
             file.flush();
             
         } catch(IOException e){
@@ -186,9 +183,41 @@ public class DatabaseWriter extends DatabaseConstants{
     public static JSONObject getApplicationsJSON(Application application){
             JSONObject applicationsDetails = new JSONObject();
             applicationsDetails.put(APPLICATIONS_ID, application.getApplicationID());
-            applicationsDetails.put(APPLICATIONS_JOB_ID, application.getJob());
-            applicationsDetails.put(APPLICATIONS_STUDENT_ID, application.getStudent());
+            applicationsDetails.put(APPLICATIONS_JOB_ID, application.getJob().getJobID());
+            applicationsDetails.put(APPLICATIONS_STUDENT_ID, application.getStudent().getStudentId());
            
         return applicationsDetails;
+    }
+    public static void saveAdmins(){
+        Users users = Users.getInstance();
+        ArrayList<Admin> administrators = users.getAdmins();
+        JSONArray jsonUsers = new JSONArray();
+
+        for(int i = 0; i<workers.size(); i++){
+            jsonUsers.add(getEmployersJSON(workers.get(i)));
+        }
+
+        try(FileWriter file = new FileWriter(EMPLOYERS_FILE)){
+            file.write(jsonUsers.toJSONString());
+            file.flush();
+            
+        } catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public static JSONObject getEmployersJSON(Employer employer){
+            JSONObject employersDetails = new JSONObject();
+            employersDetails.put(EMPLOYERS_ID, employer.getEmployerID());
+            employersDetails.put(EMPLOYERS_USERNAME, employer.getUsername());
+            employersDetails.put(EMPLOYERS_PASSWORD, employer.getPassword());
+            employersDetails.put(EMPLOYERS_FIRSTNAME, employer.getFirstName());
+            employersDetails.put(EMPLOYERS_LASTNAME, employer.getLastName());
+            employersDetails.put(EMPLOYERS_COMPANY_ID, employer.getCompany().getCompanyID());
+            employersDetails.put(EMPLOYERS_COMPANY, employer.getCompany().getName());
+            employersDetails.put(EMPLOYERS_PHONE_NUMBER, employer.getPhoneNumber());
+
+
+        return employersDetails;
     }
 }
