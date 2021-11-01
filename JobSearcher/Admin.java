@@ -1,11 +1,28 @@
 package JobSearcher;
-
-public class Admin {
-    
+import java.util.UUID;
+public class Admin extends User {
+    private UUID id;
     public Admin(){
 
     }
-
+    public void setID(UUID id) {
+      this.id = id;
+    }
+    public void setUsername(String username) {
+      super.username = username;
+      
+    }
+    public void setPassword(String password) {
+      super.password = password;
+      
+    }
+    public void setType() {
+      super.typeOfUser = "Admin";
+      
+    }
+    public UUID getID() {
+      return this.id;
+    }
     public void setUsername(User user,String username){
         user.username = username;
     }
