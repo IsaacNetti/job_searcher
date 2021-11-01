@@ -69,6 +69,9 @@ public class Student extends User{
     public String getUsername() {
         return username;
     }
+    public void addApplication(Application application){
+      applications.add(application);
+    }
     public void apply(Job job) {
         Application a = new Application(studentID, job.getJobID());
         job.addApplication(a);
