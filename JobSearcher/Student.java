@@ -57,6 +57,9 @@ public class Student extends User{
     public void setResume(Resume resume) {
         this.resume = resume;
     }
+    public void setApplications(ArrayList<Application> applications) {
+        this.applications = applications;
+    }
     public Boolean getIsAdmin() {
         return isAdmin;
     }

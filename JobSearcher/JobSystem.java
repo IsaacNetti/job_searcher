@@ -8,18 +8,58 @@ public class JobSystem {
     public JobSystem(){
 
     }
-    public void studentLogin(String username, String password){
-
+    public Student studentLogin(String username, String password){
+        Student user = new Student();
+        if(Users.getInstance().haveStudent(username)){
+            ArrayList<Student> students = Users.getInstance().getStudents();
+            for (Student student : students) {
+                if(student.username.equalsIgnoreCase(username)){
+                    user = student;
+                }
+            }
+            if(user.getPassword().equals(password)){
+                return user;
+            }
+        }
+        System.out.println("Incorrect login");
+        return null;
     }
-    public void employerLogin(String username, String password){
-
+    public Employer employerLogin(String username, String password){
+        Employer user = new Employer();
+        if(Users.getInstance().haveEmployer(username)){
+            ArrayList<Employer> employers = Users.getInstance().getEmployers();
+            for (Employer employer : employers) {
+                if(employer.username.equalsIgnoreCase(username)){
+                    user = employer;
+                }
+            }
+            if(user.getPassword().equals(password)){
+                return user;
+            }
+        }
+        System.out.println("Incorrect login");
+        return null;
     }
-    public void adminLogin(String username, String password){
-
+    public Admin adminLogin(String username, String password){
+        Admin user = new Admin();
+        if(Users.getInstance().haveAdmin(username)){
+            ArrayList<Admin> admins = Users.getInstance().getAdmins();
+            for (Admin admin : admins) {
+                if(admin.username.equalsIgnoreCase(username)){
+                    user = admin;
+                }
+            }
+            if(user.getPassword().equals(password)){
+                return user;
+            }
+        }
+        System.out.println("Incorrect login");
+        return null;
     }
     public void createStudent(String username, String password, String firstName, String lastName,String gpa,String eduAccount, String phoneNumber){
         Student student = new Student();
         UUID studentid = UUID.randomUUID();
+        ArrayList<Application> applications = new ArrayList<Application>();
         Ratings studentRatings = new Ratings();
         student.setUsername(username);
         student.setPassword(password);
@@ -30,6 +70,8 @@ public class JobSystem {
         student.setEduAccount(eduAccount);
         student.setPhoneNumber(phoneNumber);
         student.setRatings(studentRatings);
+        student.setApplications(applications);
+        student.setType();
         Users.getInstance().createStudent(student);
     }
     public void createResume(Student student, String skills, String education, String achievements){
@@ -58,19 +100,48 @@ public class JobSystem {
         DatabaseWriter.saveStudents();
 
     }
-    public void apply(Application application, Job job){
-        job.addApplication(application);
+    public void apply(Student student, Job job){
+        student.apply(job);
     }
     public void displayJobs(ArrayList<Job> jobList){
         for (Job job: jobList) {
             System.out.println(job);
         }
     }
-    public void searchJobs(String keyword){
-        
+    public void searchJobs(int choice, String keyword){
+        String decision = "";
+        switch(choice){
+            case(1):
+                decision = "name";
+            case(2):
+                decision = "location";
+            case(3):
+                decision = "remote";
+            case(4):
+                decision = "company";
+            case(5):
+                decision = "keyword";
+        }
+        JobSearch search = new JobSearch();
+        search.search(decision, keyword);
+        search.displayResults();
+
     }
-    public void searchCompany(String keyword){
-        
+    public void searchCompany(int choice,String keyword){
+        String decision = "";
+        switch(choice){
+            case(1):
+                decision = "location";
+            case(2):
+                decision = "sector";
+            case(3):
+                decision = "industry";
+            case(4):
+                decision = "keyword";
+        }
+        CompanySearch search = new CompanySearch();
+        search.runSearch(decision, keyword);
+        search.displayResults();
     }
     public void createEmployer(String username, String password, String firstName,String lastName, String phoneNumber){
         Employer employer = new Employer();
@@ -83,9 +154,8 @@ public class JobSystem {
         employer.setLastName(lastName);
         employer.setPhoneNumber(phoneNumber);
         employer.setListings(listings);
+        employer.setType();
         Users.getInstance().createEmployer(employer);
-
-
     }
     public void addCompany(Company company, Employer employer){
         employer.setCompany(company.getCompanyID());
@@ -106,6 +176,14 @@ public class JobSystem {
         for (Student student : studentList) {
             System.out.println(student);
         }
+    }
+    public void createAdmin(User user,String username, String password){
+        Admin admin = new Admin();
+        UUID adminID = UUID.randomUUID();
+        admin.setUsername(user, username);
+        admin.setPassword(user, password);
+        admin.addAdmin(user);
+        admin.setID(adminID);
     }
     public void deleteStudent(Student student){
         Users.getInstance().deleteStudent(student);

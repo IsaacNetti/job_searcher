@@ -27,9 +27,9 @@ public class Users {
       adminList.remove(admin);
       DatabaseWriter.saveAdmins();
     }
-    public boolean haveAdmin(UUID adminID){
+    public boolean haveAdmin(String username){
         for (Admin a : adminList) {
-            if (a.getID() == adminID) {
+            if (a.getUsername() == username) {
               return true;
             }
           }
@@ -71,6 +71,7 @@ public class Users {
           System.out.println("User does not exist");
           return null;
     }
+  
     public boolean haveEmployer(String username){
       for (Employer c : employerList) {
           if (c.getUsername() == username) {
