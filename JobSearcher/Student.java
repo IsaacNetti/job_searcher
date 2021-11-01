@@ -13,10 +13,13 @@ public class Student extends User{
     private Boolean isAdmin;
     private Ratings ratings;
     private Resume resume;
+    private ArrayList<Application> applications;
 
     public Student(){
         setType();
         setIsAdmin();
+        favorites = new ArrayList<>();
+        applications = new ArrayList<>();
     }
     public void setIsAdmin() {
         this.isAdmin = false;
@@ -69,6 +72,7 @@ public class Student extends User{
     public void apply(Job job) {
         Application a = new Application(studentID, job.getJobID());
         job.addApplication(a);
+        applications.add(a);
     }
     public void createResume(String skills, String education, String achievements, ArrayList<Experience> workExperience){
         this.resume = new Resume();
@@ -110,5 +114,8 @@ public class Student extends User{
     }
     public ArrayList<Experience> getExperience(){
         return resume.getWorkExperience();
+    }
+    public ArrayList<Application> getApplications() {
+      return this.applications;
     }
 }
