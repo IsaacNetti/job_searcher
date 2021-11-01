@@ -9,6 +9,32 @@ import java.util.UUID;
 
 public class DatabaseLoader extends DatabaseConstants {
   
+  public static ArrayList<Admin> loadAdmins() {
+    ArrayList<Admin> admins = new ArrayList<>();
+    
+    try {
+      FileReader reader = new FileReader(EMPLOYERS_FILE);
+      JSONParser parser = new JSONParser();
+      JSONArray adminsJSON = (JSONArray)parser.parse(reader);
+      for(int i = 0; i < adminsJSON.size(); i++){
+        JSONObject adminJSON = (JSONObject)adminsJSON.get(i);
+        String id = (String)adminJSON.get(EMPLOYERS_ID);
+        UUID uid = UUID.fromString(id);
+        String username = (String)adminJSON.get(EMPLOYERS_USERNAME);
+        String password = (String)adminJSON.get(EMPLOYERS_PASSWORD);
+
+        admins.add(new Admin());
+        admins.get(admins.size() - 1).setID(uid);        
+        admins.get(admins.size() - 1).setUsername(username);
+        admins.get(admins.size() - 1).setPassword(password);
+      }
+      return admins;
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    return admins;
+  }
+
   public static ArrayList<Employer> loadEmployers() {
     ArrayList<Employer> employers = new ArrayList<>();
     

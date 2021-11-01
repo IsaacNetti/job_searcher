@@ -3,8 +3,6 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class Student extends User{
-    private String username;
-    private String password;
     private String firstName;
     private String lastName;
     private String gpa;
@@ -17,10 +15,14 @@ public class Student extends User{
     private Resume resume;
 
     public Student(){
-
+        setType();
+        setIsAdmin();
     }
-    public void setIsAdmin(Boolean isAdmin) {
-        this.isAdmin = isAdmin;
+    public void setIsAdmin() {
+        this.isAdmin = false;
+    }
+    public void  setType() {
+        super.typeOfUser = "Student";
     }
     public void setStudentID(UUID studentID) {
         this.studentId = studentID;
@@ -60,9 +62,6 @@ public class Student extends User{
     }
     public UUID getStudentId() {
         return studentId;
-    }
-    public String getUsername() {
-        return username;
     }
     public void apply(Job job, Student student){
         job.addApplicant(student);
