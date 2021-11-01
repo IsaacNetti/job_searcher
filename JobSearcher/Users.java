@@ -6,6 +6,7 @@ public class Users {
     private static Users users;
     private ArrayList<Student> studentList;
     private ArrayList<Employer> employerList;
+    private ArrayList<Admin> adminList;
 
     public Users(){
         studentList = DatabaseLoader.loadStudents();
