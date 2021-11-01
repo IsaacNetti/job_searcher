@@ -74,8 +74,8 @@ public class Employer extends User{
     public void postJob(Job job){
       Jobs.getInstance().addJob(job);
     }
-    public ArrayList<Student> seeApplications(Job job){
-        return job.getApplicants();
+    public ArrayList<Application> seeApplications(Job job){
+        return job.getApplications();
     }
     public Ratings getRatings(Student student){
         return student.getRatings();
