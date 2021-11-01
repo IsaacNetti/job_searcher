@@ -8,6 +8,15 @@ public class JobSystem {
     public JobSystem(){
 
     }
+    public void studentLogin(String username, String password){
+
+    }
+    public void employerLogin(String username, String password){
+
+    }
+    public void adminLogin(String username, String password){
+
+    }
     public void createStudent(String username, String password, String firstName, String lastName,String gpa,String eduAccount, String phoneNumber){
         Student student = new Student();
         UUID studentid = UUID.randomUUID();
