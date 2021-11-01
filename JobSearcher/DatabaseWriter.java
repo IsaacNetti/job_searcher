@@ -136,10 +136,10 @@ public class DatabaseWriter extends DatabaseConstants{
             }
             for (int i = 0; i < student.getResume().getWorkExperience().size(); i++) {
                 JSONObject experiences = new JSONObject();
-                experiences.put(EXPERIENCES_TITLE, student..getResume().getWorkExperience().get(i));
+                experiences.put(EXPERIENCES_TITLE, student.getResume().getWorkExperience().get(i));
                 experiences.put(EXPERIENCES_COMPANY, student.getResume().getWorkExperience().get(i).getCompany());
-                experiences.put(EXPERIENCES_START, student.getResume().getWorkExperience().get(i).getStartDate()));
-                experiences.put(EXPERIENCES_END, student.getResume().getWorkExperience().get(i).getEndDate()));
+                experiences.put(EXPERIENCES_START, student.getResume().getWorkExperience().get(i).getStartDate());
+                experiences.put(EXPERIENCES_END, student.getResume().getWorkExperience().get(i).getEndDate());
                 experiences.put(EXPERIENCES_DESCRIPTION, student.getResume().getWorkExperience().get(i).getJobDescription());
                 studentExperiences.add(experiences);
             }
@@ -152,7 +152,7 @@ public class DatabaseWriter extends DatabaseConstants{
             studentsDetails.put(STUDENTS_EDU_ACCOUNT, student.getEduAccount());
             studentsDetails.put(STUDENTS_PHONE_NUMBER, student.getPhoneNumber());
             studentsDetails.put(STUDENTS_FAVORITES, student.getFavorites());
-            studentsDetails.put(STUDENTS_EDUCATION, student..getResume().getEducation());
+            studentsDetails.put(STUDENTS_EDUCATION, student.getResume().getEducation());
             studentsDetails.put(STUDENTS_ACHIEVEMENTS, student.getResume().getAchievements());
             studentsDetails.put(STUDENTS_SKILLS, student.getResume().getSkills());
             studentsDetails.put(STUDENTS_EXPERIENCE, student.getExperience());
@@ -170,6 +170,7 @@ public class DatabaseWriter extends DatabaseConstants{
         for(int i = 0; i<opportunity.size(); i++){
             for(int j = 0; j<opportunity.get(i).getApplications().size(); j++){
                 jsonApplications.add(getApplicationsJSON(opportunity.get(i).getApplications().get(j)));
+            }
         }
         try(FileWriter file = new FileWriter(APPLICATIONS_FILE)){
             file.write(jsonApplications.toJSONString());
@@ -193,11 +194,11 @@ public class DatabaseWriter extends DatabaseConstants{
         ArrayList<Admin> administrators = users.getAdmins();
         JSONArray jsonUsers = new JSONArray();
 
-        for(int i = 0; i<workers.size(); i++){
-            jsonUsers.add(getEmployersJSON(workers.get(i)));
+        for(int i = 0; i<administrators.size(); i++){
+            jsonUsers.add(getAdministratorsJSON(administrators.get(i)));
         }
 
-        try(FileWriter file = new FileWriter(EMPLOYERS_FILE)){
+        try(FileWriter file = new FileWriter(ADMINS_FILE)){
             file.write(jsonUsers.toJSONString());
             file.flush();
             
@@ -206,18 +207,12 @@ public class DatabaseWriter extends DatabaseConstants{
         }
     }
 
-    public static JSONObject getEmployersJSON(Employer employer){
-            JSONObject employersDetails = new JSONObject();
-            employersDetails.put(EMPLOYERS_ID, employer.getEmployerID());
-            employersDetails.put(EMPLOYERS_USERNAME, employer.getUsername());
-            employersDetails.put(EMPLOYERS_PASSWORD, employer.getPassword());
-            employersDetails.put(EMPLOYERS_FIRSTNAME, employer.getFirstName());
-            employersDetails.put(EMPLOYERS_LASTNAME, employer.getLastName());
-            employersDetails.put(EMPLOYERS_COMPANY_ID, employer.getCompany().getCompanyID());
-            employersDetails.put(EMPLOYERS_COMPANY, employer.getCompany().getName());
-            employersDetails.put(EMPLOYERS_PHONE_NUMBER, employer.getPhoneNumber());
+    public static JSONObject getAdministratorsJSON(Admin admin){
+            JSONObject adminDetails = new JSONObject();
+            adminDetails.put(ADMINS_ID, admin.getID());
+            adminDetails.put(ADMINS_USERNAME, admin.getUsername());
+            adminDetails.put(ADMINS_PASSWORD, admin.getPassword());
 
-
-        return employersDetails;
+        return adminDetails;
     }
 }

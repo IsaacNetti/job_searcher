@@ -11,7 +11,6 @@ public class Job {
     private String description;
     private String location;
     private boolean isRemote;
-    private ArrayList<Student> applicants;
     private ArrayList<Application> applications;
     private Company company;
     private Employer employer;
@@ -51,12 +50,11 @@ public class Job {
         Users list = Users.getInstance();
         this.employer = list.getEmployer(employerID);
     }
-
-    public void addApplicant(Student student){
-        applicants.add(student);
+    public void addApplication(Application application){
+        applications.add(application);
     }
-    public void removeApplicant(Student student){
-        applicants.remove(student);
+    public void removeApplication(Application application){
+        applications.remove(application);
     }
 
     public String getStartDate() {
@@ -85,9 +83,6 @@ public class Job {
     }
     public boolean getRemote(){
         return isRemote;
-    }
-    public ArrayList<Student> getApplicants(){
-        return this.applicants;
     }
     public UUID getJobID() {
         return jobID;
