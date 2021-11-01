@@ -8,18 +8,12 @@ public class JobSystem {
     public JobSystem(){
 
     }
-    public void createUser(String username, String password, String type){
-        User user = new User();
-        user.setUsername(username);
-        user.setPassword(password);
-        user.setType(type);
-    }
-    public void createStudent(User user, String firstName, String lastName,String gpa,String eduAccount, String phoneNumber){
+    public void createStudent(String username, String password, String firstName, String lastName,String gpa,String eduAccount, String phoneNumber){
         Student student = new Student();
         UUID studentid = UUID.randomUUID();
         Ratings studentRatings = new Ratings();
-        student.setUsername(user.getUsername());
-        student.setPassword(user.getPassword());
+        student.setUsername(username);
+        student.setPassword(password);
         student.setStudentID(studentid);
         student.setFirstName(firstName);
         student.setLastName(lastName);
@@ -27,7 +21,6 @@ public class JobSystem {
         student.setEduAccount(eduAccount);
         student.setPhoneNumber(phoneNumber);
         student.setRatings(studentRatings);
-        student.setIsAdmin(false);
         Users.getInstance().createStudent(student);
     }
     public void createResume(Student student, String skills, String education, String achievements){
@@ -36,6 +29,7 @@ public class JobSystem {
         studentResume.setSkills(skills);
         studentResume.setEducation(education);
         studentResume.setAchievements(achievements);
+        studentResume.setWorkExperience(workExperience);
         student.setResume(studentResume);
         DatabaseWriter.saveStudents();
     }
@@ -55,8 +49,8 @@ public class JobSystem {
         DatabaseWriter.saveStudents();
 
     }
-    public void apply(Student student, Job job){
-        job.addApplicant(student);
+    public void apply(Application application, Job job){
+        job.addApplication(application);
     }
     public void displayJobs(ArrayList<Job> jobList){
         for (Job job: jobList) {
@@ -64,31 +58,28 @@ public class JobSystem {
         }
     }
     public void searchJobs(String keyword){
-        JobSearch search = new JobSearch(keyword);
-        search.search();
+        
     }
     public void searchCompany(String keyword){
-        CompanySearch search = new CompanySearch(keyword);
-        search.search;
+        
     }
-    public void createEmployer(User user, String firstName,String lastName, String phoneNumber){
+    public void createEmployer(String username, String password, String firstName,String lastName, String phoneNumber){
         Employer employer = new Employer();
         UUID employerID = UUID.randomUUID();
         ArrayList<Job> listings = new ArrayList<Job>();
-        employer.setUsername(user.getUsername());
-        employer.setPassword(user.getPassword());
+        employer.setUsername(username);
+        employer.setPassword(password);
         employer.setEmployerID(employerID);
         employer.setFirstName(firstName);
         employer.setLastName(lastName);
         employer.setPhoneNumber(phoneNumber);
         employer.setListings(listings);
-        employer.setIsAdmin(false);
         Users.getInstance().createEmployer(employer);
 
 
     }
     public void addCompany(Company company, Employer employer){
-        employer.setCompany(company);
+        employer.setCompany(company.getCompanyID());
         DatabaseWriter.saveEmployers();
     }
     public void createJob(String name, String startDate, String endDate, Double salary,String description,String location,boolean isRemote, Company company,Employer employer){
@@ -98,28 +89,14 @@ public class JobSystem {
     public void removeJob(Job job){
         Jobs.getInstance().deleteJob(job);
     }
-    public void rejectApplicant(Student student, Job job){
-        job.removeApplicant(student);
+    public void rejectApplicant(Application application, Job job){
+        job.removeApplication(application);
         DatabaseWriter.saveJobs();
     }
     public void displayApplicants(ArrayList<Student> studentList){
         for (Student student : studentList) {
             System.out.println(student);
         }
-    }
-    public void setStudentAdmin(Student student){
-        student.setIsAdmin(true);
-        DatabaseWriter.saveStudents();
-    }
-    public void setEmployerAdmin(Employer employer){
-        employer.setIsAdmin(true);
-    }
-    public void removeStudentAdmin(Student student){
-        student.setIsAdmin(false);
-        DatabaseWriter.saveStudents();
-    }
-    public void removeEmployerAdmin(Employer employer){
-        employer.setIsAdmin(false);
     }
     public void deleteStudent(Student student){
         Users.getInstance().deleteStudent(student);
