@@ -46,34 +46,10 @@ public class JobSearcherUI {
         System.out.println("Enter username");
         String input = scanner.nextLine();
 
-        if(Users.getInstance().haveStudent(input)){
-            Student student = Users.getInstance().getStudent(input);
-            System.out.println("Enter password");
-            String passwordAttempt = scanner.nextLine();
-            if(student.getPassword() == passwordAttempt){
-                System.out.println("Login succesful");
-                this.studentUser = student;
-            }
-            System.out.println("Incorrect password");
-        }
-        System.out.println("User does not exist");
-
     }
     private void employerLogin(){
         System.out.println("Enter username");
         String input = scanner.nextLine();
-
-        if(Users.getInstance().haveEmployer(input)){
-            Employer employer = Users.getInstance().getEmployer(input);
-            System.out.println("Enter password");
-            String passwordAttempt = scanner.nextLine();
-            if(employer.getPassword() == passwordAttempt){
-                System.out.println("Login succesful");
-                this.employerUser = employer;
-            }
-            System.out.println("Incorrect password");
-        }
-        System.out.println("User does not exist");
     }
     private void createUser(){
 

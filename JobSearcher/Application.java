@@ -17,10 +17,16 @@ public class Application {
     private void setStudent(UUID studentID) {
       Users list = Users.getInstance();
       this.student = list.getStudent(studentID);
+      this.student.addApplication(this);
     }
     private void setJob(Job job2) {
       Jobs list = Jobs.getInstance();
+<<<<<<< HEAD
       this.job = list.getJob(job2);
+=======
+      this.job = list.getJob(jobID);
+      this.job.addApplication(this);
+>>>>>>> c07865044d1ea3c12a3dbcf7904d3bfcfdca2a70
     }
     public Student getStudent(){
         return student;

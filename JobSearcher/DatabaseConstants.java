@@ -1,7 +1,7 @@
 package JobSearcher;
 
 public abstract class DatabaseConstants {
-  protected static final String ADMINS_FILE = "JobSearcher/datastorage/employers.json";
+  protected static final String ADMINS_FILE = "JobSearcher/datastorage/admins.json";
   protected static final String ADMINS_ID = "id";
   protected static final String ADMINS_USERNAME = "username";
   protected static final String ADMINS_PASSWORD = "password";
