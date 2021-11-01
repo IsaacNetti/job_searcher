@@ -11,12 +11,39 @@ public class Users {
     public Users(){
         studentList = DatabaseLoader.loadStudents();
         employerList = DatabaseLoader.loadEmployers();
+        adminList = DatabaseLoader.loadAdmins();
     }
     public static Users getInstance(){
         if (users == null) {
             users = new Users();
           }
           return users;
+    }
+    public void createAdmin(Admin admin){
+      adminList.add(admin);
+      DatabaseWriter.saveAdmins();
+    }
+    public void deleteAdmin(Admin admin){
+      adminList.remove(admin);
+      DatabaseWriter.saveAdmins();
+    }
+    public boolean haveAdmin(UUID adminID){
+        for (Admin a : adminList) {
+            if (a.getID() == adminID) {
+              return true;
+            }
+          }
+          System.out.println("User does not exist");
+          return false;
+    }
+    public Admin getAdmin(UUID adminID){
+        for (Admin a : adminList) {
+            if (a.getID() == adminID) {
+              return a;
+            }
+          }
+          System.out.println("User does not exist");
+          return null;
     }
     public void createStudent(Student student){
       studentList.add(student);
@@ -51,15 +78,15 @@ public class Users {
           }
         }
         return false;
-  }
+    }
     public void createEmployer(Employer employer){
       employerList.add(employer);
       DatabaseWriter.saveEmployers();
-  }
-  public void deleteEmployer(Employer employer){
-    employerList.remove(employer);
-    DatabaseWriter.saveEmployers();
-}
+    }
+    public void deleteEmployer(Employer employer){
+      employerList.remove(employer);
+      DatabaseWriter.saveEmployers();
+    }
     public Employer getEmployer(UUID employerID){
       for (Employer c : employerList) {
           if (c.getEmployerID() == employerID) {
@@ -74,5 +101,8 @@ public class Users {
   }
   public ArrayList<Student> getStudents(){
     return studentList;
+  }
+  public ArrayList<Admin> getAdmins(){
+    return adminList;
   }
 }
