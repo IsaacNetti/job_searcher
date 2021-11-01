@@ -7,7 +7,7 @@ public class Application {
     private Student student;
     private Job job;
 
-    public Application(UUID studentID, Job jobID) {
+    public Application(UUID studentID, UUID jobID) {
       setStudent(studentID);
       setJob(jobID);
     }
@@ -19,14 +19,10 @@ public class Application {
       this.student = list.getStudent(studentID);
       this.student.addApplication(this);
     }
-    private void setJob(Job job2) {
+    private void setJob(UUID jobID) {
       Jobs list = Jobs.getInstance();
-<<<<<<< HEAD
-      this.job = list.getJob(job2);
-=======
       this.job = list.getJob(jobID);
       this.job.addApplication(this);
->>>>>>> c07865044d1ea3c12a3dbcf7904d3bfcfdca2a70
     }
     public Student getStudent(){
         return student;
@@ -39,13 +35,10 @@ public class Application {
       return applicationID;
     }
     public void acceptApplicant(){
-      if((getStudent().equals(student)) && (getApplicationID().equals(applicationID)) && (getJob().equals(job)))
-      return;
+
     }
 
     public void rejectApplicant(){
-      if((!getStudent().equals(student)) && (!getApplicationID().equals(applicationID)) && (!getJob().equals(job)))
-      return;
         
     }
 }

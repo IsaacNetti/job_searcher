@@ -33,8 +33,8 @@ public class Jobs {
           System.out.println("Job does not exist");
           return null;
     }
-    public Job getJobs(){
-      return jobs;
+    public ArrayList<Job> getJobs(){
+      return jobList;
     }
     public Job createJob(String name, String startDate, String endDate, Double salary,String description,String location,boolean isRemote, Company company,Employer employer){
       Job job = new Job();

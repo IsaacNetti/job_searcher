@@ -81,7 +81,7 @@ public class Employer extends User{
         return student.getRatings();
     }
     public void rateStudent(Student student){
-      student.getRatings(student, listings);
+
     }
 }
 
