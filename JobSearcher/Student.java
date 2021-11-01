@@ -6,7 +6,7 @@ public class Student extends User{
     private String firstName;
     private String lastName;
     private String gpa;
-    private UUID studentId;
+    private UUID studentID;
     private String eduAccount;
     private String phoneNumber;
     private ArrayList<Job> favorites;
@@ -25,7 +25,7 @@ public class Student extends User{
         super.typeOfUser = "Student";
     }
     public void setStudentID(UUID studentID) {
-        this.studentId = studentID;
+        this.studentID = studentID;
     }
     public void setUsername(String username) {
       this.username = username;
@@ -61,13 +61,14 @@ public class Student extends User{
         return this.ratings;
     }
     public UUID getStudentId() {
-        return studentId;
+        return studentID;
     }
     public String getUsername() {
         return username;
     }
-    public void apply(Job job, Student student){
-        job.addApplicant(student);
+    public void apply(Job job) {
+        Application a = new Application(studentID, job.getJobID());
+        job.addApplication(a);
     }
     public void createResume(String skills, String education, String achievements, ArrayList<Experience> workExperience){
         this.resume = new Resume();
