@@ -94,6 +94,7 @@ public class Job {
     public void setEmployer(UUID employerID) {
         Users list = Users.getInstance();
         this.employer = list.getEmployer(employerID);
+        this.employer.addListing(this);;
     }
     /**
      * Adds an application to the list of job applications

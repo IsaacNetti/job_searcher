@@ -383,10 +383,11 @@ public class JobSearcherUI {
             break;
           case (6):
             for (int i = 0; i < employerUser.getListings().size(); i++) {
-              System.out.println(i + ". " + employerUser.getListings().get(i));
+              System.out.println(i+1 + ". " + employerUser.getListings().get(i));
             }
             System.out.print("Enter the number of which job you want see the Applications for: ");
             int option1 = scanner.nextInt();
+            option1 -= 1;
             scanner.nextLine();
             if (option1 < 0 && option1 > employerUser.getListings().size()) {
               System.out.println("Not a valid input");

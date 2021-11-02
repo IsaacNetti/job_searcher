@@ -19,6 +19,7 @@ public class Employer extends User{
     public Employer(){
         setType();  
         setIsAdmin();
+        listings = new ArrayList<>();
     }
     /**
      * Sets the type of user to employer
@@ -122,6 +123,7 @@ public class Employer extends User{
      * @return Returns list of jobs
      */
     public ArrayList<Job> getListings() {
+      Jobs.getInstance();
       return listings;
     }
     /**
@@ -137,6 +139,9 @@ public class Employer extends User{
      */
     public Company getCompany() {
         return company;
+    }
+    public void addListing(Job job) {
+      listings.add(job);
     }
     /**
      * Creates a job

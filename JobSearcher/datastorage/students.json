@@ -20,6 +20,28 @@
         "experience":[
             {"title":"Bank Teller","company":"Bank of America","start":"2021-05-15","end":"2021-08-15","description":"Assisted customers with their financial needs."}
         ]
+    },
+    {
+        "id":"34644dad-c03e-4cd4-b1a9-d2e5d1c9493",  
+        "username":"hi",
+        "password":"password",
+        "firstName":"Ty",
+        "lastName":"Ruth",
+        "gpa":"2.77",
+        "eduAccount":"RuthT@email.sc.edu",
+        "phoneNumber":"5163336789",
+        "favorites":[
+            {"id":"34644dad-c03e-4cd4-b1a9-d2e5d1c9485"}
+        ],
+        "ratings":[
+            {"rating":2},{"rating":3}
+        ],
+        "education":"University of South Carolina",
+        "achievements":"Dean's List",
+        "skills":"Java, HTML, Microsoft Office Suite",
+        "experience":[
+            {"title":"Grocery Store Clerk","company":"Publix","start":"2021-01-10","end":"2021-08-10","description":"Bagged groceries."}
+        ]
     },{
         "id":"34644dad-c03e-4cd4-b1a9-d2e5d1c9484",
         "username":"KayleeQ188",
