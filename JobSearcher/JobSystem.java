@@ -13,7 +13,10 @@ public class JobSystem {
      * The job system constructor
      */
     public JobSystem(){
-
+        Companies.getInstance();
+        Users.getInstance();
+        Jobs.getInstance();
+        DatabaseLoader.loadApplications();
     }
     /**
      * The login system for students

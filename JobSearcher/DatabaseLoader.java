@@ -19,15 +19,15 @@ public class DatabaseLoader extends DatabaseConstants {
     ArrayList<Admin> admins = new ArrayList<>();
     
     try {
-      FileReader reader = new FileReader(EMPLOYERS_FILE);
+      FileReader reader = new FileReader(ADMINS_FILE);
       JSONParser parser = new JSONParser();
       JSONArray adminsJSON = (JSONArray)parser.parse(reader);
       for(int i = 0; i < adminsJSON.size(); i++){
         JSONObject adminJSON = (JSONObject)adminsJSON.get(i);
-        String id = (String)adminJSON.get(EMPLOYERS_ID);
+        String id = (String)adminJSON.get(ADMINS_ID);
         UUID uid = UUID.fromString(id);
-        String username = (String)adminJSON.get(EMPLOYERS_USERNAME);
-        String password = (String)adminJSON.get(EMPLOYERS_PASSWORD);
+        String username = (String)adminJSON.get(ADMINS_USERNAME);
+        String password = (String)adminJSON.get(ADMINS_PASSWORD);
 
         admins.add(new Admin());
         admins.get(admins.size() - 1).setID(uid);        
@@ -210,16 +210,16 @@ public class DatabaseLoader extends DatabaseConstants {
    */
   public static void loadApplications() {    
     try {
-      FileReader reader = new FileReader(JOBS_FILE);
+      FileReader reader = new FileReader(APPLICATIONS_FILE);
       JSONParser parser = new JSONParser();
       JSONArray applicationsJSON = (JSONArray)parser.parse(reader);
       for(int i = 0; i < applicationsJSON.size(); i++){
         JSONObject applicationJSON = (JSONObject)applicationsJSON.get(i);
-        String id = (String)applicationJSON.get(JOBS_ID);
+        String id = (String)applicationJSON.get(APPLICATIONS_ID);
         UUID uid = UUID.fromString(id);
-        String jobID = (String)applicationJSON.get(JOBS_COMPANY_ID);
+        String jobID = (String)applicationJSON.get(APPLICATIONS_JOB_ID);
         UUID uidJob = UUID.fromString(jobID);
-        String studentID = (String)applicationJSON.get(JOBS_EMPLOYER_ID);
+        String studentID = (String)applicationJSON.get(APPLICATIONS_STUDENT_ID);
         UUID uidStudent = UUID.fromString(studentID);
         Application app = new Application(uidStudent, uidJob);
         app.setApplicationID(uid);
