@@ -1,5 +1,7 @@
 package JobSearcher;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.UUID;
 /**
@@ -189,6 +191,16 @@ public class JobSystem {
         resume.addWorkExperience(experience);
         resume.getUser().setResume(resume);
         DatabaseWriter.saveStudents();
+    }
+    public void saveResume(Resume resume, String fileName){
+      try {
+        FileWriter writer = new FileWriter(fileName+ ".txt");
+        writer.write(resume.toString());;
+        writer.close();
+      } catch (IOException e) {
+        
+        e.printStackTrace();
+      }
     }
     /**
      * Adds a rating to a student
