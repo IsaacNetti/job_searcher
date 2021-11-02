@@ -290,7 +290,10 @@ public class JobSearcherUI {
     String education = scanner.nextLine();
     System.out.println("What degree are you pursying");
     String degree = scanner.nextLine();
-    education = education + "\n" + degree;
+    
+    System.out.println("What year are you expected to graduate?");
+    String grad = scanner.nextLine();
+    education = education + "\n" + degree + "\nExpected Graduation: " + grad;
     String skills = "";
     String achievements = "";
     boolean done = false;
