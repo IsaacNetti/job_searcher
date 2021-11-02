@@ -14,7 +14,7 @@ public class JobSearcherUI {
   private Employer employerUser;
   private Admin adminUser;
   private String[] studentMenuOptions = { "Create resume", "add experience to resume", "Display all jobs",
-      "Search jobs", "Search jobs by company", "Apply to a job", "View ratings", "logout" };
+      "Search jobs", "Search jobs by company", "Apply to a job", "View ratings", "Download Resume", "logout" };
   private String[] employerMenuOptions = { "Create job", "Delete job", "Display all jobs", "Search jobs",
       "Search jobs by company", "View applicants to a job", "Decline an applicant", "logout" };
   private String[] adminMenuOptions = { "Add admin", "Remove admin", "Remove Student", "Remove Employer",
@@ -259,6 +259,15 @@ public class JobSearcherUI {
           System.out.println("Your average rating is: " + studentUser.getRatings().getAverageRating());
           break;
         case (8):
+          if (studentUser.getResume() == null) {
+            System.out.println("You have not created a resume yet");
+            break;
+          }
+          System.out.println("What do you want to save it as?");
+          String fileName = scanner.nextLine();
+          jobSystem.saveResume(studentUser.getResume(), fileName);
+          break;
+        case (9):
           logout = true;
           break;
       }
