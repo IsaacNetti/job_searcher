@@ -64,7 +64,9 @@ public class Application {
     public UUID getApplicationID(){
       return applicationID;
     }
-    
+    public String toString(){
+      return student.getFirstName()+" "+student.getLastName()+"\nPhone number: "+student.getPhoneNumber()+"\nEmail: ."+student.getEduAccount();
+    }
     public void acceptApplicant(){
 
     }

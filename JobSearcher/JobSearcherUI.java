@@ -91,8 +91,10 @@ public class JobSearcherUI {
     boolean logout = false;
     while (!logout) {
       System.out.println("What would you like to do?");
+      int num = 1;
       for (String s : adminMenuOptions) {
-        System.out.println(s);
+        System.out.println(num + ". " + s);
+        num++;
       }
       int choice = scanner.nextInt();
       scanner.nextLine();
@@ -205,8 +207,10 @@ public class JobSearcherUI {
     boolean logout = false;
     while (!logout) {
       System.out.println("What would you like to do?");
+      int num = 1;
       for (String s : studentMenuOptions) {
-        System.out.println(s);
+        System.out.println(num + ". " + s);
+        num++;
       }
       int choice = scanner.nextInt();
       scanner.nextLine();
@@ -254,6 +258,7 @@ public class JobSearcherUI {
             break;
           }
           jobSystem.apply(studentUser, j);
+          System.out.println("Application submitted\n");
           break;
         case (7):
           System.out.println("Your average rating is: " + studentUser.getRatings().getAverageRating());
@@ -326,8 +331,10 @@ public class JobSearcherUI {
         }
       } else {
         System.out.println("What would you like to do?");
+        int num = 1;
         for (String s : employerMenuOptions) {
-          System.out.println(s);
+          System.out.println(num + ". " + s);
+          num++;
         }
         int choice = scanner.nextInt();
         scanner.nextLine();
@@ -405,15 +412,16 @@ public class JobSearcherUI {
             }
             ArrayList<Application> applications = employerUser.getListings().get(option1).getApplications();
             for (int i = 0; i < applications.size(); i++) {
-              System.out.println(i + ". " + applications.get(i));
+              System.out.println(i + 1 + ". " + applications.get(i));
             }
             break;
           case (7):
             for (int i = 0; i < employerUser.getListings().size(); i++) {
-              System.out.println(i + ". " + employerUser.getListings().get(i));
+              System.out.println(i + 1 + ". " + employerUser.getListings().get(i));
             }
             System.out.print("Enter the number of which job you want see the Applications for: ");
             int option2 = scanner.nextInt();
+            option2 -= 1;
             scanner.nextLine();
             if (option2 < 0 && option2 > employerUser.getListings().size()) {
               System.out.println("Not a valid input");
@@ -421,10 +429,11 @@ public class JobSearcherUI {
             }
             ArrayList<Application> applications1 = employerUser.getListings().get(option2).getApplications();
             for (int i = 0; i < applications1.size(); i++) {
-              System.out.println(i + ". " + applications1.get(i));
+              System.out.println(i + 1 + ". " + applications1.get(i));
             }
             System.out.print("Enter the applicant number you want to delete: ");
             int applicant1 = scanner.nextInt();
+            applicant1 -= 1;
             scanner.nextLine();
             if (applicant1 < 0 && applicant1 > applications1.size()) {
               System.out.println("Not a valid input");
