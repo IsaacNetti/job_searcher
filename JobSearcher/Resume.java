@@ -93,4 +93,10 @@ public class Resume {
     public Student getUser() {
         return user;
     }
+    public String toString(){
+      ArrayList<String> experiences = new ArrayList<>();
+      for (Experience experience : workExperience) {
+        experiences.add(experience.toString());
+      }
+      return "Resume\n" + user.getFirstName() +" "+ user.getLastName()+"\n"+user.getEduAccount()+"\n"+user.getGPA()+"\n"+ user.getPhoneNumber()+"\n"+ this.getAchievements()+"\n"+ this.getEducation()+"\n"+ this.getSkills()+experiences;    }
 }
