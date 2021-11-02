@@ -1,1 +1,67 @@
-[{"favorites":[],"lastName":"Aires","education":"dookie","achievements":"nailing your mom\n","experience":[],"skills":"javas mom\n","firstName":"Brayden","password":"iLoveUSC","phoneNumber":"8039899023","ratings":[{"rating":4},{"rating":3}],"gpa":"3.56","id":"34644dad-c03e-4cd4-b1a9-0d2e5d1c9483","eduAccount":"BBA1@email.sc.edu","username":"goCocks999"},{"favorites":[],"lastName":"Ruth","education":"University of South Carolina","achievements":"Dean's List","experience":[{"start":"2021-01-10","description":"Bagged groceries.","company":"Publix","end":"2021-08-10","title":"Grocery Store Clerk"}],"skills":"Java, HTML, Microsoft Office Suite","firstName":"Ty","password":"password","phoneNumber":"5163336789","ratings":[{"rating":2},{"rating":3}],"gpa":"2.77","id":"34644dad-c03e-4cd4-b1a9-0d2e5d1c9493","eduAccount":"RuthT@email.sc.edu","username":"hi"},{"favorites":[],"lastName":"Quigley","education":"University of South Carolina","achievements":"Dean's List","experience":[{"start":"2020-05-15","description":"Developed software in Java for Microsoft's search engine, Bing.","company":"Microsoft","end":"2020-08-15","title":"Intern"}],"skills":"Java, C++, HTML, Microsoft Office Suite","firstName":"Kaylee","password":"Sparky!2!","phoneNumber":"6455120099","ratings":[{"rating":4},{"rating":3}],"gpa":"3.77","id":"34644dad-c03e-4cd4-b1a9-0d2e5d1c9484","eduAccount":"KayleeQ01@email.sc.edu","username":"KayleeQ188"}]
+[
+    {
+        "id":"34644dad-c03e-4cd4-b1a9-d2e5d1c9483",  
+        "username":"goCocks999",
+        "password":"iLoveUSC",
+        "firstName":"Brayden",
+        "lastName":"Aires",
+        "gpa":"3.56",
+        "eduAccount":"BBA1@email.sc.edu",
+        "phoneNumber":"8039899023",
+        "favorites":[
+            {"id":"34644dad-c03e-4cd4-b1a9-d2e5d1c9485"}
+        ],
+        "ratings":[
+            {"rating":4},{"rating":3}
+        ],
+        "education":"University of South Carolina",
+        "achievements":"Dean's List",
+        "skills":"Java, C++, HTML, Microsoft Office Suite",
+        "experience":[
+            {"title":"Bank Teller","company":"Bank of America","start":"2021-05-15","end":"2021-08-15","description":"Assisted customers with their financial needs."}
+        ]
+    },
+    {
+        "id":"34644dad-c03e-4cd4-b1a9-d2e5d1c9493",  
+        "username":"hi",
+        "password":"password",
+        "firstName":"Ty",
+        "lastName":"Ruth",
+        "gpa":"2.77",
+        "eduAccount":"RuthT@email.sc.edu",
+        "phoneNumber":"5163336789",
+        "favorites":[
+            {"id":"34644dad-c03e-4cd4-b1a9-d2e5d1c9485"}
+        ],
+        "ratings":[
+            {"rating":2},{"rating":3}
+        ],
+        "education":"University of South Carolina",
+        "achievements":"Dean's List",
+        "skills":"Java, HTML, Microsoft Office Suite",
+        "experience":[
+            {"title":"Grocery Store Clerk","company":"Publix","start":"2021-01-10","end":"2021-08-10","description":"Bagged groceries."}
+        ]
+    },{
+        "id":"34644dad-c03e-4cd4-b1a9-d2e5d1c9484",
+        "username":"KayleeQ188",
+        "password":"Sparky!2!",
+        "firstName":"Kaylee",
+        "lastName":"Quigley",
+        "gpa":"3.77",
+        "eduAccount":"KayleeQ01@email.sc.edu",
+        "phoneNumber":"6455120099",
+        "favorites":[
+          {"id":"34644dad-c03e-4cd4-b1a9-d2e5d1c9486"}
+        ],
+        "ratings":[
+          {"rating":4},{"rating":3}
+        ],
+        "education":"University of South Carolina",
+        "achievements":"Dean's List",
+        "skills":"Java, C++, HTML, Microsoft Office Suite",
+        "experience":[
+            {"title":"Intern","company":"Microsoft","start":"2020-05-15","end":"2020-08-15","description":"Developed software in Java for Microsoft's search engine, Bing."}
+        ]
+    }
+]
