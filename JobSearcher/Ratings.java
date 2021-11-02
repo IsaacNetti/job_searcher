@@ -5,10 +5,11 @@ import java.util.UUID;
  * The ratings class
  * @author The Back Rowers
  */
+    
+    
 public class Ratings {
     private ArrayList<Integer> ratings;
     private double rating;
-    private Student student;
     /**
      * The ratings constructor
      */
@@ -55,6 +56,9 @@ public class Ratings {
      * Gets the rating
      * @return Returns the list of ratings
      */
+    public double getRating() {
+        return rating;
+    }
     public ArrayList<Integer> getRatings() {
         return ratings;
     }

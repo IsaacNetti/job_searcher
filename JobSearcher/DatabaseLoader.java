@@ -113,10 +113,9 @@ public class DatabaseLoader extends DatabaseConstants {
         JSONArray ratingsJSON = (JSONArray)studentJSON.get(STUDENTS_RATINGS);
         for (int j = 0; j < ratingsJSON.size(); j++) {
           JSONObject ratingJSON = (JSONObject)ratingsJSON.get(j);
-          ratings.add((int)ratingJSON.get(RATINGS));
+          ratings.add(((Long)ratingJSON.get(RATINGS)).intValue());
         }
         studentRatings.setRatings(ratings);
-        studentRatings.setStudent(uid);
         
         String phoneNumber = (String)studentJSON.get(STUDENTS_PHONE_NUMBER);
         String education = (String)studentJSON.get(STUDENTS_EDUCATION);

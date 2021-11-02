@@ -63,6 +63,52 @@ public class JobSystem {
      * @param password The password of an admin
      * @return Returns the user as an admin
      */
+    public Job getJob(String jobTitle, String companyName) {
+      for (Job j : Jobs.getInstance().getJobs()) {
+        if (j.getName().equalsIgnoreCase(jobTitle) && j.getCompany().getName().equalsIgnoreCase(companyName)) {
+          return j;
+        }
+      }
+      return null;
+    }
+    public Company companyExists(String companyName) {
+        if (Companies.getInstance().haveCompany(companyName)) {
+          ArrayList<Company> companies = Companies.getInstance().getCompanies();
+          for (Company c : companies) {
+            if (c.getName().equalsIgnoreCase(companyName)) {
+              return c;
+            }
+          }
+        }
+        return null;
+    }
+    public Admin adminExists(UUID adminID) {
+      ArrayList<Admin> admins = Users.getInstance().getAdmins();
+      for (Admin a : admins) {
+        if (a.getID() == adminID) {
+          return a;
+        }
+      }
+      return null;
+    }
+    public Employer employerExists(UUID employerID) {
+      ArrayList<Employer> employers = Users.getInstance().getEmployers();
+      for (Employer c : employers) {
+        if (c.getEmployerID() == employerID) {
+          return c;
+        }
+      }
+      return null;
+    }
+    public Student studentExists(UUID studentID) {
+      ArrayList<Student> students = Users.getInstance().getStudents();
+      for (Student s : students) {
+        if (s.getStudentId() == studentID) {
+          return s;
+        }
+      }
+      return null;
+    }
     public Admin adminLogin(String username, String password){
         Admin user = new Admin();
         if(Users.getInstance().haveAdmin(username)){
@@ -165,8 +211,11 @@ public class JobSystem {
      * Displays the jobs
      * @param jobList The list of jobs
      */
+    public void displayAllJobs() {
+      displayJobs(Jobs.getInstance().getJobs());
+    }
     public void displayJobs(ArrayList<Job> jobList){
-        for (Job job: jobList) {
+        for (Job job : jobList) {
             System.out.println(job);
         }
     }
@@ -175,6 +224,19 @@ public class JobSystem {
      * @param choice The category that the student wants to search in
      * @param keyword The phrase that the student wants to search
      */
+    public void jobFilters() {
+      JobSearch search = new JobSearch();
+      for (String s : search.displayFilters()) {
+        System.out.println(s);
+      }
+      System.out.println("How would you like to search?");
+    }
+    public void companyFilters() {
+      CompanySearch search = new CompanySearch();
+      for (String s : search.displayFilters()) {
+        System.out.println(s);
+      }
+    }
     public void searchJobs(int choice, String keyword){
         String decision = "";
         switch(choice){
@@ -191,7 +253,7 @@ public class JobSystem {
         }
         JobSearch search = new JobSearch();
         search.search(decision, keyword);
-        search.displayResults();
+        displayJobs(search.displayResults());
 
     }
     /**
@@ -294,12 +356,13 @@ public class JobSystem {
      * @param password The password of the user that is becoming an admin
      */
     public void createAdmin(User user,String username, String password){
+    public void createAdmin(String username, String password){
         Admin admin = new Admin();
         UUID adminID = UUID.randomUUID();
-        admin.setUsername(user, username);
-        admin.setPassword(user, password);
-        admin.addAdmin(user);
+        admin.setUsername(username);
+        admin.setPassword(password);
         admin.setID(adminID);
+        Users.getInstance().createAdmin(admin);
     }
     /**
      * Deletes a student user
@@ -322,6 +385,12 @@ public class JobSystem {
      * @param industry The industry of the company
      * @param sector The sector of the company
      */
+    public void deleteAdmin(Admin admin){
+      Users.getInstance().deleteAdmin(admin);
+  }
+    public void deleteCompany(Company company){
+        Companies.getInstance().deleteCompany(company);
+  }
     public void createCompany(String name, String location, String industry, String sector){
         Company company = new Company();
         UUID companyID = UUID.randomUUID();
