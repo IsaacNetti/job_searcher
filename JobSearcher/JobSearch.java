@@ -24,25 +24,18 @@ public class JobSearch {
         Jobs list = Jobs.getInstance();
         if (choice.equalsIgnoreCase("keyword")) {
             for (Job c : list.getJobs()) {
-                if (c.getCompany().getName().contains(keyword)) {
+                if (c.getName().contains(keyword)) {
                     results.add(c);
-                    break;
-                }
-                if (c.getCompany().getSector().contains(keyword)) {
+                } else if (c.getCompany().getName().contains(keyword)) {
                     results.add(c);
-                    break;
-                }
-                if (c.getDescription().contains(keyword)) {
+                } else if (c.getCompany().getSector().contains(keyword)) {
                     results.add(c);
-                    break;
-                }
-                if (c.getCompany().getIndustry().contains(keyword)) {
+                } else if (c.getDescription().contains(keyword)) {
                     results.add(c);
-                    break;
-                }
-                if (c.getLocation().contains(keyword)) {
+                } else if (c.getCompany().getIndustry().contains(keyword)) {
                     results.add(c);
-                    break;
+                } else if (c.getLocation().contains(keyword)) {
+                    results.add(c);
                 }
             }
         } else if (choice.equalsIgnoreCase("name")) {

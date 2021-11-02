@@ -225,8 +225,9 @@ public class JobSearcherUI {
           jobSystem.displayAllJobs();
           break;
         case (4):
-          jobSystem.jobFilters();
           System.out.println("How would you like to search?");
+          jobSystem.jobFilters();
+          
           int response = scanner.nextInt();
           scanner.nextLine();
           System.out.println("What phrase are you searching for?");

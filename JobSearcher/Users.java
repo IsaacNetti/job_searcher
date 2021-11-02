@@ -65,7 +65,7 @@ public class Users {
      */
     public Admin getAdmin(UUID adminID){
         for (Admin a : adminList) {
-            if (a.getID() == adminID) {
+            if (a.getID().compareTo(adminID) == 0) {
               return a;
             }
           }
@@ -109,7 +109,7 @@ public class Users {
      */
     public Student getStudent(UUID studentID){
         for (Student c : studentList) {
-            if (c.getStudentId() == studentID) {
+            if (c.getStudentId().compareTo(studentID) == 0) {
               return c;
             }
           }
@@ -152,7 +152,7 @@ public class Users {
      */
     public Employer getEmployer(UUID employerID){
       for (Employer c : employerList) {
-          if (c.getEmployerID() == employerID) {
+          if (c.getEmployerID().compareTo(employerID) == 0) {
             return c;
           }
         }

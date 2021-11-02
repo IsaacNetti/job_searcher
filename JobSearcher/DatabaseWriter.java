@@ -166,13 +166,14 @@ public class DatabaseWriter extends DatabaseConstants{
             }
             for (int i = 0; i < student.getResume().getWorkExperience().size(); i++) {
                 JSONObject experiences = new JSONObject();
-                experiences.put(EXPERIENCES_TITLE, student.getResume().getWorkExperience().get(i));
+                experiences.put(EXPERIENCES_TITLE, student.getResume().getWorkExperience().get(i).getTitle());
                 experiences.put(EXPERIENCES_COMPANY, student.getResume().getWorkExperience().get(i).getCompany());
                 experiences.put(EXPERIENCES_START, student.getResume().getWorkExperience().get(i).getStartDate());
                 experiences.put(EXPERIENCES_END, student.getResume().getWorkExperience().get(i).getEndDate());
                 experiences.put(EXPERIENCES_DESCRIPTION, student.getResume().getWorkExperience().get(i).getJobDescription());
                 studentExperiences.add(experiences);
             }
+            
             studentsDetails.put(STUDENTS_ID, student.getStudentId().toString());
             studentsDetails.put(STUDENTS_USERNAME, student.getUsername());
             studentsDetails.put(STUDENTS_PASSWORD, student.getPassword());
@@ -185,8 +186,15 @@ public class DatabaseWriter extends DatabaseConstants{
             studentsDetails.put(STUDENTS_EDUCATION, student.getResume().getEducation());
             studentsDetails.put(STUDENTS_ACHIEVEMENTS, student.getResume().getAchievements());
             studentsDetails.put(STUDENTS_SKILLS, student.getResume().getSkills());
-            studentsDetails.put(STUDENTS_EXPERIENCE, studentExperiences);
+            try {
+                studentsDetails.put(STUDENTS_EXPERIENCE, studentExperiences);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+            
             studentsDetails.put(STUDENTS_RATINGS, studentRatings);
+            
 
 
         return studentsDetails;
