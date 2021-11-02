@@ -64,14 +64,10 @@ public class Application {
     public UUID getApplicationID(){
       return applicationID;
     }
+    /**
+     * This is the to String method for students
+     */
     public String toString(){
       return student.getFirstName()+" "+student.getLastName()+"\nPhone number: "+student.getPhoneNumber()+"\nEmail: ."+student.getEduAccount();
-    }
-    public void acceptApplicant(){
-
-    }
-
-    public void rejectApplicant(){
-        
     }
 }

@@ -3,7 +3,10 @@ package JobSearcher;
 import java.util.Scanner;
 import java.util.UUID;
 import java.util.ArrayList;
-
+/**
+ * The user interface for job searcher
+ * @author The Back Rowers
+ */
 public class JobSearcherUI {
   private static final String TITLE = "Job Searcher\n";
   private static final String LOGIN = "What would you like to do: \n1. Sign in\n2. Create a New Account";
@@ -26,7 +29,9 @@ public class JobSearcherUI {
     this.scanner = new Scanner(System.in);
     jobSystem = new JobSystem();
   }
-
+  /**
+   * Starts the program
+   */
   public void run() {
     System.out.println(TITLE);
     System.out.println(LOGIN);
@@ -448,7 +453,9 @@ public class JobSearcherUI {
       }
     }
   }
-
+  /**
+   * This runs the program
+   */
   public static void main(String[] args) {
     JobSearcherUI jobSearcherInterface = new JobSearcherUI();
     jobSearcherInterface.run();

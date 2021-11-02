@@ -5,7 +5,6 @@ import java.util.ArrayList;
  * @author The Back Rowers
  */
     
-    
 public class Ratings {
     private ArrayList<Integer> ratings;
     private double rating;
@@ -36,6 +35,10 @@ public class Ratings {
     public double getRating() {
         return rating;
     }
+    /**
+     * Gets the ratings list
+     * @return Returns list of ratings
+     */
     public ArrayList<Integer> getRatings() {
         return ratings;
     }

@@ -93,6 +93,9 @@ public class Resume {
     public Student getUser() {
         return user;
     }
+    /**
+     * The to String method for the experiences
+     */
     public String toString(){
       ArrayList<String> experiences = new ArrayList<>();
       for (Experience experience : workExperience) {

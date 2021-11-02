@@ -55,7 +55,6 @@ public class Users {
               return true;
             }
           }
-          System.out.println("User does not exist");
           return false;
     }
     /**
@@ -69,7 +68,6 @@ public class Users {
               return a;
             }
           }
-          System.out.println("User does not exist");
           return null;
     }
     /**
@@ -99,7 +97,6 @@ public class Users {
               return true;
             }
           }
-          System.out.println("User does not exist");
           return false;
     }
     /**
@@ -113,7 +110,6 @@ public class Users {
               return c;
             }
           }
-          System.out.println("User does not exist");
           return null;
     }
     /**
@@ -156,7 +152,6 @@ public class Users {
             return c;
           }
         }
-        System.out.println("User does not exist");
         return null;
   }
   /**

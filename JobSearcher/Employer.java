@@ -140,6 +140,10 @@ public class Employer extends User{
     public Company getCompany() {
         return company;
     }
+    /**
+     * Adds a job to a listing
+     * @param job The job that is being added
+     */
     public void addListing(Job job) {
       listings.add(job);
     }
@@ -187,8 +191,8 @@ public class Employer extends User{
      * The employer gives the student a rating 
      * @param student The student that the employer is rating
      */
-    public void rateStudent(Student student){
-
+    public void rateStudent(Student student, int rating){
+      student.getRatings().addRating(rating);
     }
 }
 

@@ -37,7 +37,7 @@ public class JobSystem {
                 return user;
             }
         }
-        System.out.println("Incorrect login");
+        
         return null;
     }
     /**
@@ -59,7 +59,7 @@ public class JobSystem {
                 return user;
             }
         }
-        System.out.println("Incorrect login");
+      
         return null;
     }
     /**
@@ -76,6 +76,11 @@ public class JobSystem {
       }
       return null;
     }
+    /**
+     * Checks if the company exists
+     * @param companyName The name of the company that is being checked
+     * @return Returns company if found
+     */
     public Company companyExists(String companyName) {
         if (Companies.getInstance().haveCompany(companyName)) {
           ArrayList<Company> companies = Companies.getInstance().getCompanies();
@@ -87,6 +92,11 @@ public class JobSystem {
         }
         return null;
     }
+    /**
+     * Checks if the admin exists
+     * @param adminID The UUID of the admin
+     * @return Returns admin if found
+     */
     public Admin adminExists(UUID adminID) {
       ArrayList<Admin> admins = Users.getInstance().getAdmins();
       for (Admin a : admins) {
@@ -96,6 +106,11 @@ public class JobSystem {
       }
       return null;
     }
+    /**
+     * Checks if the employer exists
+     * @param employerID The UUID of the employer
+     * @return Returns employer if found
+     */
     public Employer employerExists(UUID employerID) {
       ArrayList<Employer> employers = Users.getInstance().getEmployers();
       for (Employer c : employers) {
@@ -105,6 +120,11 @@ public class JobSystem {
       }
       return null;
     }
+    /**
+     * Checks if the student exists
+     * @param studentID The UUID of the student
+     * @return Returns student if found
+     */
     public Student studentExists(UUID studentID) {
       ArrayList<Student> students = Users.getInstance().getStudents();
       for (Student s : students) {
@@ -114,6 +134,12 @@ public class JobSystem {
       }
       return null;
     }
+    /**
+     * Admin login
+     * @param username The username of the admin
+     * @param password The password of the admin
+     * @return Returns admin
+     */
     public Admin adminLogin(String username, String password){
         Admin user = new Admin();
         if(Users.getInstance().haveAdmin(username)){
@@ -193,6 +219,11 @@ public class JobSystem {
         resume.addWorkExperience(experience);
         DatabaseWriter.saveStudents();
     }
+    /**
+     * Saves the resume
+     * @param student The student whose resume is being saved
+     * @param fileName The name of the resume being saved
+     */
     public void saveResume(Student student, String fileName){
       try {
         FileWriter writer = new FileWriter(fileName+ ".txt");
@@ -227,6 +258,10 @@ public class JobSystem {
     public void displayAllJobs() {
       displayJobs(Jobs.getInstance().getJobs());
     }
+    /**
+     * Dislays all the jobs
+     * @param jobList The list of jobs posted
+     */
     public void displayJobs(ArrayList<Job> jobList){
         for (Job job : jobList) {
             System.out.println(job);
@@ -245,12 +280,20 @@ public class JobSystem {
         num++;
       }
     }
+    /**
+     * Displays the search filters
+     */
     public void companyFilters() {
       CompanySearch search = new CompanySearch();
       for (String s : search.displayFilters()) {
         System.out.println(s);
       }
     }
+    /**
+     * Searches for jobs 
+     * @param choice The category the user wants to search in
+     * @param keyword The user's desired phrase
+     */
     public void searchJobs(int choice, String keyword){
         String decision = "";
         switch(choice){
@@ -399,18 +442,26 @@ public class JobSystem {
         Users.getInstance().deleteEmployer(employer);
     }
     /**
-     * Creates a company 
-     * @param name The name of the company
-     * @param location The location of the company
-     * @param industry The industry of the company
-     * @param sector The sector of the company
+     * Deletes an admin
+     * @param admin The user that is being deleted
      */
     public void deleteAdmin(Admin admin){
       Users.getInstance().deleteAdmin(admin);
   }
+  /**
+   * Deletes a company
+   * @param company The company that is being deleted
+   */
     public void deleteCompany(Company company){
         Companies.getInstance().deleteCompany(company);
   }
+  /**
+   * Creates a company
+   * @param name The name of the company
+   * @param location The location of the company
+   * @param industry The industry of the company
+   * @param sector The sector of the company
+   */
     public void createCompany(String name, String location, String industry, String sector){
         Company company = new Company();
         UUID companyID = UUID.randomUUID();

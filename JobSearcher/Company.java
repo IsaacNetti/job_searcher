@@ -102,6 +102,9 @@ public class Company {
     public void addJob(Job job){
         job.setCompany(companyID);
     }
+    /**
+     * This is the to string for the company
+     */
     public String toString() {
       return "Name: " + getName() + "\nLocation: " + getLocation() + "\nIndustry: " + getIndustry() + "\nSector: " + getSector();
     }    

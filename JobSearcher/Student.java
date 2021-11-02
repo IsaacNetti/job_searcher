@@ -255,6 +255,10 @@ public class Student extends User{
     public ArrayList<Application> getApplications() {
       return this.applications;
     }
+    /**
+     * Strings together student information and their respective resume
+     * @return Returns a string with information
+     */
     public String resumeWriter(){
         return "Resume\n" + this.getFirstName() +" "+ this.getLastName()+"\n"+this.getEduAccount()+"\nGPA: "+this.getGPA()+"\nPhone number: "+ this.getPhoneNumber()+resume.toString();
     }
