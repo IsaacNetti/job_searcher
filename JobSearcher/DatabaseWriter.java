@@ -173,7 +173,7 @@ public class DatabaseWriter extends DatabaseConstants{
                 experiences.put(EXPERIENCES_DESCRIPTION, student.getResume().getWorkExperience().get(i).getJobDescription());
                 studentExperiences.add(experiences);
             }
-            studentsDetails.put(STUDENTS_ID, student.getStudentId());
+            studentsDetails.put(STUDENTS_ID, student.getStudentId().toString());
             studentsDetails.put(STUDENTS_USERNAME, student.getUsername());
             studentsDetails.put(STUDENTS_PASSWORD, student.getPassword());
             studentsDetails.put(STUDENTS_FIRSTNAME, student.getFirstName());
@@ -185,7 +185,7 @@ public class DatabaseWriter extends DatabaseConstants{
             studentsDetails.put(STUDENTS_EDUCATION, student.getResume().getEducation());
             studentsDetails.put(STUDENTS_ACHIEVEMENTS, student.getResume().getAchievements());
             studentsDetails.put(STUDENTS_SKILLS, student.getResume().getSkills());
-            studentsDetails.put(STUDENTS_EXPERIENCE, student.getExperience());
+            studentsDetails.put(STUDENTS_EXPERIENCE, studentExperiences);
             studentsDetails.put(STUDENTS_RATINGS, studentRatings);
 
 
