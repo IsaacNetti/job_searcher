@@ -1,11 +1,9 @@
 package JobSearcher;
 import java.util.ArrayList;
-import java.util.UUID;
 
 public class Ratings {
     private ArrayList<Integer> ratings;
     private double rating;
-    private Student student;
 
     public Ratings(){
       ratings = new ArrayList<>();
@@ -17,15 +15,8 @@ public class Ratings {
         this.ratings = ratings;
         setRating();
     }
-    public void setStudent(UUID studentID) {
-        Users list = Users.getInstance();
-        this.student = list.getStudent(studentID);
-    }
     public double getRating() {
         return rating;
-    }
-    public Student getStudent() {
-        return student;
     }
     public ArrayList<Integer> getRatings() {
         return ratings;
