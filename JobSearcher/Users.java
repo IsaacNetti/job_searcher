@@ -14,9 +14,9 @@ public class Users {
    * The users constructor
    */
     public Users(){
-        //studentList = DatabaseLoader.loadStudents();
+        studentList = DatabaseLoader.loadStudents();
         employerList = DatabaseLoader.loadEmployers();
-        //adminList = DatabaseLoader.loadAdmins();
+        adminList = DatabaseLoader.loadAdmins();
     }
     /**
      * Creates an instance of the user
@@ -51,7 +51,7 @@ public class Users {
      */
     public boolean haveAdmin(String username){
         for (Admin a : adminList) {
-            if (a.getUsername() == username) {
+            if (a.getUsername().equals(username)) {
               return true;
             }
           }
@@ -95,7 +95,7 @@ public class Users {
      */
     public boolean haveStudent(String username){
         for (Student c : studentList) {
-            if (c.getUsername() == username) {
+            if (c.getUsername().equals(username)) {
               return true;
             }
           }
@@ -123,7 +123,7 @@ public class Users {
      */
     public boolean haveEmployer(String username){
       for (Employer c : employerList) {
-          if (c.getUsername() == username) {
+          if (c.getUsername().equals(username)) {
             return true;
           }
         }

@@ -32,7 +32,9 @@
         "favorites":[
           {"id":"34644dad-c03e-4cd4-b1a9-d2e5d1c9486"}
         ],
-        "ratings":"5.0",
+        "ratings":[
+          {"rating":4},{"rating":3}
+        ],
         "education":"University of South Carolina",
         "achievements":"Dean's List",
         "skills":"Java, C++, HTML, Microsoft Office Suite",

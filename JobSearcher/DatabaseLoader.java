@@ -147,9 +147,9 @@ public class DatabaseLoader extends DatabaseConstants {
         students.get(students.size() - 1).setGpa(gpa);
         students.get(students.size() - 1).setEduAccount(eduAccount);
         students.get(students.size() - 1).setPhoneNumber(phoneNumber);
-        for (UUID favoriteID : favoritesIDS) {
-          students.get(students.size() - 1).addFavorites(favoriteID);
-        }
+        //for (UUID favoriteID : favoritesIDS) {
+          //students.get(students.size() - 1).addFavorites(favoriteID);
+        //}
         students.get(students.size() - 1).setRatings(studentRatings);
         students.get(students.size() - 1).createResume(skills, education, achievements, experiences);
       }

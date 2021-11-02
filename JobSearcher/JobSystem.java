@@ -24,7 +24,7 @@ public class JobSystem {
         if(Users.getInstance().haveStudent(username)){
             ArrayList<Student> students = Users.getInstance().getStudents();
             for (Student student : students) {
-                if(student.username.equalsIgnoreCase(username)){
+                if(student.getUsername().equalsIgnoreCase(username)){
                     user = student;
                 }
             }
