@@ -6,7 +6,7 @@ public class JobSearcherUI {
     private static final int NUM_LOGIN_COMMANDS = 3;
     private Student studentUser;
     private Employer employerUser;
-    private String[] studentMenuOptions = {"Create resume","add experience to resume","Display all jobs","Search jobs","Search jobs by company","Apply to a job","View ratings","logout"};
+    private String[] studentMenuOptions = {"Create resume","Add experience to resume","Display all jobs","Search jobs","Search jobs by company","Apply to a job","View ratings","logout"};
     private String[] employerMenuOptions = {"Create job","Delete job","Add a company","Display all jobs","Search jobs","Search jobs by company", "View applicants to a job", "Decline an applicant","logout"};
     private String[] adminMenuOptions = {"Add admin", "Remove admin", "Remove Student", "Remove Employer", "Remove company"};
     private Scanner scanner;

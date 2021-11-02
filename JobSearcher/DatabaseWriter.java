@@ -5,9 +5,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+/**
+ * Writes the data into the JSON file
+ * @author The Back Rowers
+ */
 public class DatabaseWriter extends DatabaseConstants{
-    
-
+    /**
+     * Saves a company into the JSON database
+     */
     public static void saveCompanies(){
         Companies companies = Companies.getInstance();
         ArrayList<Company> employers = companies.getCompanies();
@@ -25,7 +30,11 @@ public class DatabaseWriter extends DatabaseConstants{
             e.printStackTrace();
         }
     }
-
+    /**
+     * Accesses the company JSON file
+     * @param company The company that is being accessed
+     * @return Returns the JSON database
+     */
     public static JSONObject getCompanyJSON(Company company){
             JSONObject companiesDetails = new JSONObject();
             companiesDetails.put(COMPANIES_ID, company.getCompanyID());
@@ -36,6 +45,9 @@ public class DatabaseWriter extends DatabaseConstants{
 
         return companiesDetails;
     }
+    /**
+     * Saves the job into the JSON database
+     */
     public static void saveJobs(){
         Jobs jobs = Jobs.getInstance();
         ArrayList<Job> jobOpportunity = jobs.getJobs();
@@ -53,7 +65,11 @@ public class DatabaseWriter extends DatabaseConstants{
             e.printStackTrace();
         }
     }
-
+    /**
+     * Accesses job JSON file
+     * @param job The job that is being accessed
+     * @return Returns the JSON object
+     */
     public static JSONObject getJobsJSON(Job job){
             JSONObject jobsDetails = new JSONObject();
             jobsDetails.put(JOBS_ID, job.getJobID());
@@ -69,6 +85,9 @@ public class DatabaseWriter extends DatabaseConstants{
 
         return jobsDetails;
     }
+    /**
+     * Saves the employers into the JSON database
+     */
     public static void saveEmployers(){
         Users users = Users.getInstance();
         ArrayList<Employer> workers = users.getEmployers();
@@ -86,7 +105,11 @@ public class DatabaseWriter extends DatabaseConstants{
             e.printStackTrace();
         }
     }
-
+    /**
+     * Accesses employer JSON file
+     * @param employer The employer that is being accessed
+     * @return Returns the JSON object
+     */
     public static JSONObject getEmployersJSON(Employer employer){
             JSONObject employersDetails = new JSONObject();
             employersDetails.put(EMPLOYERS_ID, employer.getEmployerID());
@@ -101,6 +124,9 @@ public class DatabaseWriter extends DatabaseConstants{
 
         return employersDetails;
     }
+    /**
+     * Saves the students into the JSON database
+     */
     public static void saveStudents(){
         Users users = Users.getInstance();
         ArrayList<Student> candidates = users.getStudents();
@@ -118,7 +144,11 @@ public class DatabaseWriter extends DatabaseConstants{
             e.printStackTrace();
         }
     }
-
+    /**
+     * Accesses student JSON file
+     * @param student The student that is being accessed
+     * @return Returns the JSON object
+     */
     public static JSONObject getStudentsJSON(Student student){
             JSONObject studentsDetails = new JSONObject();
             JSONArray studentRatings = new JSONArray();
@@ -161,6 +191,9 @@ public class DatabaseWriter extends DatabaseConstants{
 
         return studentsDetails;
     }
+    /**
+     * Saves the applications into the JSON database
+     */
     public static void saveApplications(){
         Jobs jobs = Jobs.getInstance();
         ArrayList<Job> opportunity = jobs.getJobs();
@@ -180,7 +213,11 @@ public class DatabaseWriter extends DatabaseConstants{
             e.printStackTrace();
         }
     }
-
+    /**
+     * Accesses application JSON file
+     * @param application The application that is being accessed
+     * @return Returns the JSON object
+     */
     public static JSONObject getApplicationsJSON(Application application){
             JSONObject applicationsDetails = new JSONObject();
             applicationsDetails.put(APPLICATIONS_ID, application.getApplicationID());
@@ -189,6 +226,9 @@ public class DatabaseWriter extends DatabaseConstants{
            
         return applicationsDetails;
     }
+    /**
+     * Saves the admins into the JSON database
+     */
     public static void saveAdmins(){
         Users users = Users.getInstance();
         ArrayList<Admin> administrators = users.getAdmins();
@@ -206,7 +246,11 @@ public class DatabaseWriter extends DatabaseConstants{
             e.printStackTrace();
         }
     }
-
+    /**
+     * Accesses admin JSON file
+     * @param admin The admin that is being accessed
+     * @return Returns the JSON object
+     */
     public static JSONObject getAdministratorsJSON(Admin admin){
             JSONObject adminDetails = new JSONObject();
             adminDetails.put(ADMINS_ID, admin.getID());

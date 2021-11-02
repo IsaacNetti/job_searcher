@@ -2,12 +2,23 @@ package JobSearcher;
 
 import java.util.ArrayList;
 import java.util.UUID;
-
+/**
+ * The facade of the system
+ * @author The Back Rowers
+ */
 public class JobSystem {
-    
+    /**
+     * The job system constructor
+     */
     public JobSystem(){
 
     }
+    /**
+     * The login system for students
+     * @param username The username of the student
+     * @param password The password of the student
+     * @return Returns the user as a student
+     */
     public Student studentLogin(String username, String password){
         Student user = new Student();
         if(Users.getInstance().haveStudent(username)){
@@ -24,6 +35,12 @@ public class JobSystem {
         System.out.println("Incorrect login");
         return null;
     }
+    /**
+     * The login system for employers
+     * @param username The username of the employer
+     * @param password The password of the employer
+     * @return Returns the user as an employer
+     */
     public Employer employerLogin(String username, String password){
         Employer user = new Employer();
         if(Users.getInstance().haveEmployer(username)){
@@ -40,6 +57,12 @@ public class JobSystem {
         System.out.println("Incorrect login");
         return null;
     }
+    /**
+     * The login system for an admin
+     * @param username The username of an admin
+     * @param password The password of an admin
+     * @return Returns the user as an admin
+     */
     public Admin adminLogin(String username, String password){
         Admin user = new Admin();
         if(Users.getInstance().haveAdmin(username)){
@@ -56,6 +79,16 @@ public class JobSystem {
         System.out.println("Incorrect login");
         return null;
     }
+    /**
+     * Creates a student user
+     * @param username The username of the student
+     * @param password The password of the student
+     * @param firstName The first name of the student
+     * @param lastName Thelast name of the student
+     * @param gpa The GPA of the student
+     * @param eduAccount The eduAccount of the student
+     * @param phoneNumber The phone number of the student
+     */
     public void createStudent(String username, String password, String firstName, String lastName,String gpa,String eduAccount, String phoneNumber){
         Student student = new Student();
         UUID studentid = UUID.randomUUID();
@@ -74,6 +107,13 @@ public class JobSystem {
         student.setType();
         Users.getInstance().createStudent(student);
     }
+    /**
+     * Creates a resume
+     * @param student The student that is creating the resume
+     * @param skills The skills of the student
+     * @param education The education of the student
+     * @param achievements The achievements of the student
+     */
     public void createResume(Student student, String skills, String education, String achievements){
         ArrayList<Experience> workExperience = new ArrayList<Experience>();
         Resume studentResume = new Resume();
@@ -84,6 +124,15 @@ public class JobSystem {
         student.setResume(studentResume);
         DatabaseWriter.saveStudents();
     }
+    /**
+     * Adds experiences to resume
+     * @param resume The resume that it is being added to
+     * @param title The title of the experience
+     * @param company The company of the experience
+     * @param startDate The start date of the experience
+     * @param endDate The end date of the experience
+     * @param jobDescription The description of the experience
+     */
     public void addExperience(Resume resume, String title, String company, String startDate, String endDate, String jobDescription){
         Experience experience = new Experience();
         experience.setTitle(title);
@@ -95,19 +144,37 @@ public class JobSystem {
         resume.getUser().setResume(resume);
         DatabaseWriter.saveStudents();
     }
+    /**
+     * Adds a rating to a student
+     * @param student The student that is being rated
+     * @param rating The rating of the student
+     */
     public void addRating(Student student,int rating){
         student.addRating(rating);
         DatabaseWriter.saveStudents();
-
     }
+    /**
+     * Student applies to a job
+     * @param student The student that is applying
+     * @param job The job that the student is applying to
+     */
     public void apply(Student student, Job job){
         student.apply(job);
     }
+    /**
+     * Displays the jobs
+     * @param jobList The list of jobs
+     */
     public void displayJobs(ArrayList<Job> jobList){
         for (Job job: jobList) {
             System.out.println(job);
         }
     }
+    /**
+     * Searches for jobs 
+     * @param choice The category that the student wants to search in
+     * @param keyword The phrase that the student wants to search
+     */
     public void searchJobs(int choice, String keyword){
         String decision = "";
         switch(choice){
@@ -127,6 +194,11 @@ public class JobSystem {
         search.displayResults();
 
     }
+    /**
+     * Searches for company 
+     * @param choice The category that the student wants to search in
+     * @param keyword The phrase that the student wants to search
+     */
     public void searchCompany(int choice,String keyword){
         String decision = "";
         switch(choice){
@@ -143,6 +215,14 @@ public class JobSystem {
         search.runSearch(decision, keyword);
         search.displayResults();
     }
+    /**
+     * Creates an employer
+     * @param username The username of the employer
+     * @param password The password of the employer
+     * @param firstName The first name of the employer
+     * @param lastName The last name of the employer
+     * @param phoneNumber The phone number of the employer
+     */
     public void createEmployer(String username, String password, String firstName,String lastName, String phoneNumber){
         Employer employer = new Employer();
         UUID employerID = UUID.randomUUID();
@@ -157,26 +237,62 @@ public class JobSystem {
         employer.setType();
         Users.getInstance().createEmployer(employer);
     }
+    /**
+     * Adds a company to the employer
+     * @param company The company that the employer works for
+     * @param employer The employer that works for the company
+     */
     public void addCompany(Company company, Employer employer){
         employer.setCompany(company.getCompanyID());
         DatabaseWriter.saveEmployers();
     }
+    /**
+     * Creates a job
+     * @param name The name of the job
+     * @param startDate The start date of the job
+     * @param endDate The end date of the job
+     * @param salary The salary of the job
+     * @param description The description of the job
+     * @param location The location of the job
+     * @param isRemote Whether the job is remote
+     * @param company The company of the job
+     * @param employer The employer of the job
+     */
     public void createJob(String name, String startDate, String endDate, Double salary,String description,String location,boolean isRemote, Company company,Employer employer){
         Job job = Jobs.getInstance().createJob(name, startDate, endDate, salary, description, location, isRemote, company, employer);
         Jobs.getInstance().addJob(job);
     }
+    /**
+     * Removes the job 
+     * @param job The job that is being deleted
+     */
     public void removeJob(Job job){
         Jobs.getInstance().deleteJob(job);
     }
+    /**
+     * The employer rejecting an applicant
+     * @param application The application that is being rejected
+     * @param job The job that is being rejected
+     */
     public void rejectApplicant(Application application, Job job){
         job.removeApplication(application);
         DatabaseWriter.saveJobs();
     }
+    /**
+     * Displays the applicants
+     * @param studentList The list of students that applied
+     */
     public void displayApplicants(ArrayList<Student> studentList){
         for (Student student : studentList) {
             System.out.println(student);
         }
     }
+    /**
+     * Creates an admin user
+     * @param user The user that is becoming an admin
+     * @param username The username of the user that is becoming an admin
+     * @param password The password of the user that is becoming an admin
+     */
     public void createAdmin(User user,String username, String password){
         Admin admin = new Admin();
         UUID adminID = UUID.randomUUID();
@@ -185,12 +301,27 @@ public class JobSystem {
         admin.addAdmin(user);
         admin.setID(adminID);
     }
+    /**
+     * Deletes a student user
+     * @param student The student that is being deleted
+     */
     public void deleteStudent(Student student){
         Users.getInstance().deleteStudent(student);
     }
+    /**
+     * Deletes an employer user
+     * @param employer The employer that is being deleted
+     */
     public void deleteEmployer(Employer employer){
         Users.getInstance().deleteEmployer(employer);
     }
+    /**
+     * Creates a company 
+     * @param name The name of the company
+     * @param location The location of the company
+     * @param industry The industry of the company
+     * @param sector The sector of the company
+     */
     public void createCompany(String name, String location, String industry, String sector){
         Company company = new Company();
         UUID companyID = UUID.randomUUID();
