@@ -1,5 +1,8 @@
 package JobSearcher;
-
+/**
+ * JSON database of constants
+ * @author The Back Rowers
+ */
 public abstract class DatabaseConstants {
   protected static final String ADMINS_FILE = "JobSearcher/datastorage/admins.json";
   protected static final String ADMINS_ID = "id";

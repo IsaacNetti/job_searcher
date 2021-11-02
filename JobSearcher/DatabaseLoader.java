@@ -6,9 +6,15 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import java.io.FileReader;
 import java.util.UUID;
-
+/**
+ * Loads the JSON database 
+ * @author The Back Rowers
+ */
 public class DatabaseLoader extends DatabaseConstants {
-  
+  /**
+   * Loads the administrator information
+   * @return Returns list of admins
+   */
   public static ArrayList<Admin> loadAdmins() {
     ArrayList<Admin> admins = new ArrayList<>();
     
@@ -34,7 +40,10 @@ public class DatabaseLoader extends DatabaseConstants {
     }
     return admins;
   }
-
+  /**
+   * Loads the employer information
+   * @return Returns list of employers
+   */
   public static ArrayList<Employer> loadEmployers() {
     ArrayList<Employer> employers = new ArrayList<>();
     
@@ -69,7 +78,10 @@ public class DatabaseLoader extends DatabaseConstants {
     }
     return employers;
   }
-
+  /**
+   * Loads the student information
+   * @return Returns list of students
+   */
   public static ArrayList<Student> loadStudents() {
     ArrayList<Student> students = new ArrayList<>();
     
@@ -147,7 +159,10 @@ public class DatabaseLoader extends DatabaseConstants {
     }
     return students;
   }
-
+  /**
+   * Loads the job information
+   * @return Returns list of jobs
+   */
   public static ArrayList<Job> loadJobs() {
     ArrayList<Job> jobs = new ArrayList<>();
     
@@ -189,7 +204,10 @@ public class DatabaseLoader extends DatabaseConstants {
     }
     return jobs;
   }
-
+  /**
+   * Loads the application information
+   * @return Returns list of applications
+   */
   public static void loadApplications() {    
     try {
       FileReader reader = new FileReader(JOBS_FILE);
@@ -212,7 +230,10 @@ public class DatabaseLoader extends DatabaseConstants {
     }
     return;
   }
-
+  /**
+   * Loads the company information
+   * @return Returns list of companies
+   */
   public static ArrayList<Company> loadCompanies() {
     ArrayList<Company> companies = new ArrayList<>();
     
