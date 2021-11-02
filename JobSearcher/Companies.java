@@ -33,7 +33,7 @@ public class Companies {
     }
     public Company getCompany(UUID companyID) {
       for (Company c : companylist) {
-        if (c.getCompanyID() == companyID) {
+        if (c.getCompanyID().compareTo(companyID) == 0) {
           return c;
         }
       }

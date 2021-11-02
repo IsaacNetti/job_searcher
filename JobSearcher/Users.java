@@ -9,9 +9,9 @@ public class Users {
     private ArrayList<Admin> adminList;
 
     public Users(){
-        studentList = DatabaseLoader.loadStudents();
+        //studentList = DatabaseLoader.loadStudents();
         employerList = DatabaseLoader.loadEmployers();
-        adminList = DatabaseLoader.loadAdmins();
+        //adminList = DatabaseLoader.loadAdmins();
     }
     public static Users getInstance(){
         if (users == null) {
