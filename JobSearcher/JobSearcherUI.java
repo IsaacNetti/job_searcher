@@ -288,6 +288,9 @@ public class JobSearcherUI {
   private void createResume() {
     System.out.println("Enter the name of your college: ");
     String education = scanner.nextLine();
+    System.out.println("What degree are you pursying");
+    String degree = scanner.nextLine();
+    education = education + "\n" + degree;
     String skills = "";
     String achievements = "";
     boolean done = false;
