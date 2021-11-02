@@ -1,6 +1,5 @@
 package JobSearcher;
 import java.util.ArrayList;
-import java.util.UUID;
 /**
  * The ratings class
  * @author The Back Rowers
@@ -29,28 +28,6 @@ public class Ratings {
     public void setRatings(ArrayList<Integer> ratings) {
         this.ratings = ratings;
         setRating();
-    }
-    /**
-     * Sets the student UUID
-     * @param studentID The UUID of the student
-     */
-    public void setStudent(UUID studentID) {
-        Users list = Users.getInstance();
-        this.student = list.getStudent(studentID);
-    }
-    /**
-     * Gets the rating
-     * @return Returns the rating of the student
-     */
-    public double getRating() {
-        return rating;
-    }
-    /**
-     * Gets the student
-     * @return Returns the student
-     */
-    public Student getStudent() {
-        return student;
     }
     /**
      * Gets the rating

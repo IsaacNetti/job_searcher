@@ -355,7 +355,6 @@ public class JobSystem {
      * @param username The username of the user that is becoming an admin
      * @param password The password of the user that is becoming an admin
      */
-    public void createAdmin(User user,String username, String password){
     public void createAdmin(String username, String password){
         Admin admin = new Admin();
         UUID adminID = UUID.randomUUID();
