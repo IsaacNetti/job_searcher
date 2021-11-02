@@ -98,5 +98,6 @@ public class Resume {
       for (Experience experience : workExperience) {
         experiences.add(experience.toString());
       }
-      return "Resume\n" + user.getFirstName() +" "+ user.getLastName()+"\n"+user.getEduAccount()+"\n"+user.getGPA()+"\n"+ user.getPhoneNumber()+"\n"+ this.getAchievements()+"\n"+ this.getEducation()+"\n"+ this.getSkills()+experiences;    }
+      return "\nExperiences:\n "+ this.getAchievements()+"\nEducation:\n "+ this.getEducation()+"\nSkills:\n "+ this.getSkills()+"\nWork experiences\n "+experiences;    
+    }
 }

@@ -11,7 +11,7 @@ public class tester {
         UUID studentid = UUID.fromString("34644dad-c03e-4cd4-b1a9-d2e5d1c9483"); 
         Student student = c.getStudent(studentid);
         JobSystem system = new JobSystem();
-        system.saveResume(student.getResume(), "yurmom");
+        System.out.println(student.getResume().toString());
     }
 
 

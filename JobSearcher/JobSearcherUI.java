@@ -265,7 +265,8 @@ public class JobSearcherUI {
           }
           System.out.println("What do you want to save it as?");
           String fileName = scanner.nextLine();
-          jobSystem.saveResume(studentUser.getResume(), fileName);
+          jobSystem.saveResume(studentUser, fileName);
+          System.out.println("resume saved under "+ fileName);
           break;
         case (9):
           logout = true;
@@ -445,3 +446,4 @@ public class JobSearcherUI {
     System.out.println(EXIT);
   }
 }
+

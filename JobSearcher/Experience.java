@@ -86,6 +86,6 @@ public class Experience {
         return title;
     }
     public String toString(){
-      return "\n"+this.getTitle()+"\n"+ this.getCompany()+"\n"+ this.getJobDescription()+"\nStart date: "+ this.getStartDate()+"\nEnd date"+ this.getEndDate();
+      return ""+this.getTitle()+"\n "+ this.getCompany()+"\n "+ this.getJobDescription()+"\n Start date: "+ this.getStartDate()+"\n End date: "+ this.getEndDate();
     }
 }

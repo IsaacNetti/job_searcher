@@ -191,10 +191,10 @@ public class JobSystem {
         resume.addWorkExperience(experience);
         DatabaseWriter.saveStudents();
     }
-    public void saveResume(Resume resume, String fileName){
+    public void saveResume(Student student, String fileName){
       try {
         FileWriter writer = new FileWriter(fileName+ ".txt");
-        writer.write(resume.toString());;
+        writer.write(student.resumeWriter());;
         writer.close();
       } catch (IOException e) {
         

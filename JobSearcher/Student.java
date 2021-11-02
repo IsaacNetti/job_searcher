@@ -255,4 +255,7 @@ public class Student extends User{
     public ArrayList<Application> getApplications() {
       return this.applications;
     }
+    public String resumeWriter(){
+        return "Resume\n" + this.getFirstName() +" "+ this.getLastName()+"\n"+this.getEduAccount()+"\nGPA: "+this.getGPA()+"\nPhone number: "+ this.getPhoneNumber()+resume.toString();
+    }
 }

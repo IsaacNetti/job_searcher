@@ -1,0 +1,17 @@
+Resume
+Brayden Aires
+BBA1@email.sc.edu
+GPA: 3.56
+Phone number: 8039899023
+Experiences:
+ Dean's List
+Education:
+ University of South Carolina
+Skills:
+ Java, C++, HTML, Microsoft Office Suite
+Work experiences
+ [Bank Teller
+ Bank of America
+ Assisted customers with their financial needs.
+ Start date: 2021-05-15
+ End date: 2021-08-15]
