@@ -184,7 +184,8 @@ public class Job {
      * @return Returns the toString of the job
      */
     public String toString(){
-        return "";
+        return "Title: " + getName() + "\nCompany: " + getCompany().getName() + "\nLocation: " +getLocation() + "\nStart Date: " + getStartDate()
+            + "\nEnd Date: " + getEndDate() + "\nSalary: " + getSalary() + "\nDescription: " + getDescription() + "\n";
     }
     /**
      * Gets the applications of the job

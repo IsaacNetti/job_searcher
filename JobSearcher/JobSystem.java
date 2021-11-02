@@ -189,7 +189,6 @@ public class JobSystem {
         experience.setEndDate(endDate);
         experience.setJobDescription(jobDescription);
         resume.addWorkExperience(experience);
-        resume.getUser().setResume(resume);
         DatabaseWriter.saveStudents();
     }
     public void saveResume(Resume resume, String fileName){
@@ -238,10 +237,11 @@ public class JobSystem {
      */
     public void jobFilters() {
       JobSearch search = new JobSearch();
+      int num = 1;
       for (String s : search.displayFilters()) {
-        System.out.println(s);
+        System.out.println(num + ". " + s);
+        num++;
       }
-      System.out.println("How would you like to search?");
     }
     public void companyFilters() {
       CompanySearch search = new CompanySearch();
@@ -254,14 +254,19 @@ public class JobSystem {
         switch(choice){
             case(1):
                 decision = "name";
+                break;
             case(2):
                 decision = "location";
+                break;
             case(3):
                 decision = "remote";
+                break;
             case(4):
                 decision = "company";
+                break;
             case(5):
                 decision = "keyword";
+                break;
         }
         JobSearch search = new JobSearch();
         search.search(decision, keyword);
@@ -287,7 +292,9 @@ public class JobSystem {
         }
         CompanySearch search = new CompanySearch();
         search.runSearch(decision, keyword);
-        search.displayResults();
+        for (Company c : search.displayResults()) {
+            System.out.println(c);
+        }
     }
     /**
      * Creates an employer

@@ -13,7 +13,7 @@ public class Jobs {
      */
     public Jobs(){
         jobList = DatabaseLoader.loadJobs();
-        DatabaseLoader.loadApplications();
+        //DatabaseLoader.loadApplications();
     }
     /**
      * Gets an instance of jobs
