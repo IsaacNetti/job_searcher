@@ -13,7 +13,6 @@ public class Jobs {
      */
     public Jobs(){
         jobList = DatabaseLoader.loadJobs();
-        //DatabaseLoader.loadApplications();
     }
     /**
      * Gets an instance of jobs
@@ -32,7 +31,7 @@ public class Jobs {
      */
     public boolean haveJob(String jobName){
         for (Job c : jobList) {
-            if (c.getName() == jobName) {
+            if (c.getName().equals(jobName)) {
               return true;
             }
           }
@@ -45,7 +44,7 @@ public class Jobs {
      */
     public Job getJob(UUID jobID){
         for (Job c : jobList) {
-            if (c.getJobID() == jobID) {
+            if (c.getJobID().compareTo(jobID) == 0) {
               return c;
             }
           }

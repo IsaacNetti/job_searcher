@@ -21,7 +21,7 @@ public class Job {
      * The job constructor
      */
     public Job(){
-
+      applications = new ArrayList<>();
     }
     /**
      * Sets the UUID of the job
