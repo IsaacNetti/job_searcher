@@ -4,14 +4,25 @@ BBA1@email.sc.edu
 GPA: 3.56
 Phone number: 8039899023
 Experiences:
- Dean's List
+ 
 Education:
- University of South Carolina
+ UofSC
+Bachelors in CIS
+Expected Graduation: 2023
 Skills:
- Java, C++, HTML, Microsoft Office Suite
+ Python
+Java
+JavaScript
+HTML
+CSS
+
 Work experiences
- [Bank Teller
+ [Software Developer Intern
+ JP Morgan
+ Created a python program that predicts clients needs. Managed incoming customers and future predictions
+ Start date: May 2019
+ End date: Aug 2019, Test Engineer Intern
  Bank of America
- Assisted customers with their financial needs.
- Start date: 2021-05-15
- End date: 2021-08-15]
+ Create JUnit test cases to test new features of the back end of the banks website. Executed test cases and reported issues to engineering
+ Start date: May 2020
+ End date: Aug 2020]
