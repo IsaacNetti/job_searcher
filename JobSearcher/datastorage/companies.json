@@ -1,15 +1,1 @@
-[
-  {
-    "id":"34644dad-c03e-4cd4-b1a9-d2e5d1c94d77",
-    "name":"Google",
-    "location":"Mountain View, CA",
-    "sector":"Communication Services",
-    "industry":"Internet Content and Information"
-  },{
-    "id":"34644dad-c03e-4cd4-b1a9-d2e5d1c94d78",
-    "name":"Amazon",
-    "location":"Mountain View, CA",
-    "sector":"Consumer Cyclical",
-    "industry":"Internet Retail" 
-  }
-]
+[{"name":"cn","location":"cl","industry":"ci","id":c3c953cd-04a4-4339-9774-51beaeee26ca,"sector":"cs"},{"name":"cn","location":"cl","industry":"ci","id":66e74a38-775d-460e-a2f7-8e74319f492d,"sector":"cs"},{"name":"cn","location":"cl","industry":"ci","id":7a26e197-9861-47b4-b68e-9c8d8452d5ab,"sector":"cs"}]
