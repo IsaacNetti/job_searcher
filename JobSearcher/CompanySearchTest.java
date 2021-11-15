@@ -11,9 +11,9 @@ import org.junit.jupiter.api.Test;
 public class CompanySearchTest {
   Companies companies = Companies.getInstance();
   CompanySearch search = new CompanySearch();
-  public Company c = new Company();
+  Company c = new Company();
   
-  public Company c2 = new Company();
+  Company c2 = new Company();
   
   @BeforeEach
   public void setup() {
