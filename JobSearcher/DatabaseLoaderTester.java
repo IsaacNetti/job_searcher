@@ -19,23 +19,32 @@ public class DatabaseLoaderTester {
         newStudent.setLastName("Smith");
         newStudent.setGpa("3.0");
         newStudent.setEduAccount("tagS@email.sc.edu");
+        Ratings ratings = new Ratings();
+        ArrayList<Integer> rate = new ArrayList<>();
+        rate.add(4);
+        ratings.setRatings(rate);
+        newStudent.setRatings(ratings);
+        student.createStudent(newStudent);
 
         Student newStudent1 = new Student();
-        newStudent.setUsername("johnT");
-        newStudent.setPassword("soda444");
-        newStudent.setFirstName("John");
-        newStudent.setLastName("Travolta");
-        newStudent.setGpa("2.9");
-        newStudent.setEduAccount("johnT@email.sc.edu");
+        newStudent1.setUsername("johnT");
+        newStudent1.setPassword("soda444");
+        newStudent1.setFirstName("John");
+        newStudent1.setLastName("Travolta");
+        newStudent1.setGpa("2.9");
+        newStudent1.setEduAccount("johnT@email.sc.edu");
+        newStudent1.setRatings(ratings);
+        student.createStudent(newStudent1);
 
         Student newStudent2 = new Student();
-        newStudent.setUsername("frankeatsbeans");
-        newStudent.setPassword("pinto4life");
-        newStudent.setFirstName("Frank");
-        newStudent.setLastName("Sint");
-        newStudent.setGpa("4.0");
-        newStudent.setEduAccount("sint11@email.sc.edu");
-
+        newStudent2.setUsername("frankeatsbeans");
+        newStudent2.setPassword("pinto4life");
+        newStudent2.setFirstName("Frank");
+        newStudent2.setLastName("Sint");
+        newStudent2.setGpa("4.0");
+        newStudent2.setEduAccount("sint11@email.sc.edu");
+        newStudent2.setRatings(ratings);
+        student.createStudent(newStudent2);
         DatabaseWriter.saveStudents();
     }
     @AfterEach
