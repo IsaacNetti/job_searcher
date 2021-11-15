@@ -40,7 +40,7 @@ public class JobSearch {
             }
         } else if (choice.equalsIgnoreCase("name")) {
             for (Job c : list.getJobs()) {
-                if (c.getCompany().getName().contains(keyword)) {
+                if (c.getName().contains(keyword)) {
                     results.add(c);
                     break;
                 }

@@ -3,6 +3,7 @@ package JobSearcher;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,15 +14,26 @@ public class JobSearchTest {
   JobSearch search = new JobSearch();
   Job j = new Job();
   Job j2 = new Job();
+  Company c = new Company();
+  Companies companies = Companies.getInstance();
 
   @BeforeEach
   public void setup() {
+    UUID id = UUID.randomUUID();
+    c.setCompanyID(id);
+    c.setName("cn");
+    c.setIndustry("ci");
+    c.setLocation("cl");
+    c.setSector("cs");
+    companies.addCompany(c);
     j.setName("n1");
     j.setLocation("l1");
     j.setDescription("d1");
+    j.setCompany(id);
     j2.setName("n2");
     j2.setLocation("l2");
-    j2.setDescription("d2"); 
+    j2.setDescription("d2");
+    j2.setCompany(id); 
     jobs.addJob(j);
     jobs.addJob(j2);
   }
@@ -41,9 +53,9 @@ public class JobSearchTest {
 
   @Test
   public void testSearchByLocation() {
-    search.search("location", "l1");
+    search.search("location", "cl");
     ArrayList<Job> r = search.displayResults();
-    assertEquals("l1", r.get(0).getLocation());
+    assertEquals("cl", r.get(0).getCompany().getLocation());
   }
 
   @Test
